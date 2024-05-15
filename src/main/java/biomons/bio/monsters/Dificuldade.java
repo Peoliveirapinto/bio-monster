@@ -11,6 +11,9 @@ package biomons.bio.monsters;
 public class Dificuldade {
     private int nivel;
     
+    public Dificuldade(int nivel){
+        setNivel(nivel);
+    }
     public int getNivel(){
         return nivel;
     }

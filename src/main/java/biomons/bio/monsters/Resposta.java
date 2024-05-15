@@ -11,10 +11,12 @@ package biomons.bio.monsters;
 public class Resposta {
     private boolean certa;
     private String resposta;
+    private int idPergunta;
     
-    public Resposta(boolean certa, String resposta){
-        this.certa = certa;
-        this.resposta = resposta;        
+    public Resposta(boolean certa, String resposta, int idPergunta){
+        setCerta(certa);
+        setResposta(resposta);
+        setIdPergunta(idPergunta);
     }
     
     public boolean getCerta(){
@@ -28,6 +30,12 @@ public class Resposta {
     }
     public void setResposta(String resposta){
         this.resposta = resposta;
+    }
+    public int getIdPergunta(){
+        return idPergunta;
+    }
+    public void setIdPergunta(int idPergunta){
+        this.idPergunta = idPergunta;
     }
     
 }
