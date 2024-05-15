@@ -12,6 +12,11 @@ public class Resposta {
     private boolean certa;
     private String resposta;
     
+    public Resposta(boolean certa, String resposta){
+        this.certa = certa;
+        this.resposta = resposta;        
+    }
+    
     public boolean getCerta(){
         return certa;
     }

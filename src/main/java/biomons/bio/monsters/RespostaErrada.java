@@ -11,6 +11,11 @@ package biomons.bio.monsters;
 public class RespostaErrada extends Resposta {
     private String correct;
     
+    public RespostaErrada(boolean certa, String resposta,String correct){
+        super(certa, resposta);
+        this.correct = correct;
+    }
+    
     public String getCorrect(){
         return correct;
     }
