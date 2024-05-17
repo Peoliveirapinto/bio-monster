@@ -14,7 +14,7 @@ public class Jogador {
     public double getAcertos(){
         return acertos;
     }
-    public void serAcertos(double acertos){
+    public void setAcertos(double acertos){
         this.acertos = acertos;
     }
 }
