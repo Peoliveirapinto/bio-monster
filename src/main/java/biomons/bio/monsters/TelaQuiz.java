@@ -9,12 +9,17 @@ import java.util.*;
  * @author pedro
  */
 public class TelaQuiz extends javax.swing.JFrame {
-    private Random escolhaAleatoria;
-    public String respostaAleatoria(List<Resposta> respostas){
+    public String respostaAleatoria(){
+        List<Resposta> respostas = new ArrayList<Resposta>();
+        Resposta teste = new Resposta(true,"teste 2",1);
+        respostas.add(teste);
         String resp;
-        resp = respostas.get(escolhaAleatoria.nextInt(respostas.size())).getResposta();
+        resp = (respostas.get(0)).getResposta();
         return resp;
     }
+        /*List<Resposta> respostas = new ArrayList<>();
+        Resposta teste = new Resposta(true,"teste",1);
+        respostas.add(teste);*/
 
     /**
      * Creates new form TelaQuiz
@@ -57,7 +62,7 @@ public class TelaQuiz extends javax.swing.JFrame {
             }
         });
 
-        resposta1.setText(respostaAleatoria(respostas));
+        resposta1.setText(respostaAleatoria());
         resposta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resposta1ActionPerformed(evt);
@@ -139,8 +144,6 @@ public class TelaQuiz extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        List<Resposta> respostas = new ArrayList<>();
-        Resposta teste = new Resposta(true,"teste",1);
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -165,8 +168,6 @@ public class TelaQuiz extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        
-        respostas.add(teste);
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
