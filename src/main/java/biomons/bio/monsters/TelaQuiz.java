@@ -4,17 +4,16 @@
  */
 package biomons.bio.monsters;
 import java.util.*;
-import javax.swing.JButton;
 /**
  *
  * @author pedro
  */
 public class TelaQuiz extends javax.swing.JFrame {
     private Random escolhaAleatoria;
-    private ArrayList<Resposta> respostas;
     public String respostaAleatoria(List<Resposta> respostas){
-        
-        return 
+        String resp;
+        resp = respostas.get(escolhaAleatoria.nextInt(respostas.size())).getResposta();
+        return resp;
     }
 
     /**
@@ -58,7 +57,7 @@ public class TelaQuiz extends javax.swing.JFrame {
             }
         });
 
-        resposta1.setText(random.choice(espostas));
+        resposta1.setText(respostaAleatoria(respostas));
         resposta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resposta1ActionPerformed(evt);
@@ -140,6 +139,8 @@ public class TelaQuiz extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        List<Resposta> respostas = new ArrayList<>();
+        Resposta teste = new Resposta(true,"teste",1);
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -164,6 +165,8 @@ public class TelaQuiz extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
+        respostas.add(teste);
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
