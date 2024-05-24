@@ -9,22 +9,42 @@ import java.util.*;
  * @author pedro
  */
 public class TelaQuiz extends javax.swing.JFrame {
-    public String respostaAleatoria(){
-        List<Resposta> respostas = new ArrayList<Resposta>();
-        Resposta teste = new Resposta(true,"teste 2",1);
-        respostas.add(teste);
-        String resp;
-        resp = (respostas.get(0)).getResposta();
-        return resp;
+
+    public List<Pergunta> addPerguntas (int dificuldade){
+        List<Pergunta> perguntas = new ArrayList<Pergunta>();
+//        int k = count de perguntas na dificuldade escolhida
+        for (int i=1; i=<k; i++){
+//            perguntas.add(pergunta com nivelDificulade=dificulade);
+        }
+        return perguntas;
     }
-        /*List<Resposta> respostas = new ArrayList<>();
-        Resposta teste = new Resposta(true,"teste",1);
-        respostas.add(teste);*/
+    public Pergunta selectPergunta (List<Pergunta> perguntas, int indexPergunta){
+        return perguntas.get(indexPergunta);
+    }
+    public List<Resposta> addRespostas(int idPergunta){
+        List<Resposta> respostas = new ArrayList<Resposta>();
+        for (int i=1; i=<4; i++){
+//            respostas.add(resposta com idPergunta=idPergunta e idResposta diferente do anterior)
+        }
+        return respostas;
+    }
+    
+    public Resposta selectResposta(List<Resposta> respostas, int indexResposta){
+        return respostas.get(indexResposta);
+    }
 
     /**
      * Creates new form TelaQuiz
      */
     public TelaQuiz() {
+        int dificuldade = 1;
+        List<Pergunta> perguntas = addPerguntas(dificuldade);
+        int indexPergunta =1;
+        List<Resposta> respostas = addRespostas(indexPergunta);
+        //int vidaJogador = (numero de perguntas dessa dificuldade)/2
+        //int vidaInimigo = (numero de perguntas dessa dificuldade)/2+1
+        //
+     
         initComponents();
     }
 
@@ -144,6 +164,7 @@ public class TelaQuiz extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
