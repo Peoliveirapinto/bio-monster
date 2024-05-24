@@ -44,7 +44,6 @@ public class TelaQuiz extends javax.swing.JFrame {
         //int vidaJogador = (numero de perguntas dessa dificuldade)/2
         //int vidaInimigo = (numero de perguntas dessa dificuldade)/2+1
         //
-     
         initComponents();
     }
 
