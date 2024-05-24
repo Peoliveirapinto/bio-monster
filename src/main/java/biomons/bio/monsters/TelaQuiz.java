@@ -43,7 +43,7 @@ public class TelaQuiz extends javax.swing.JFrame {
         List<Resposta> respostas = addRespostas(indexPergunta);
         int numPerguntas = perguntas.size();
         int vidaJogador = (numPerguntas)/2;
-        int vidaInimigo = (numPerguntas)/2+1;
+        int vidaInimigo = ((numPerguntas)/2)+1;
         //
         initComponents();
     }
@@ -61,8 +61,8 @@ public class TelaQuiz extends javax.swing.JFrame {
         resposta4 = new javax.swing.JButton();
         resposta1 = new javax.swing.JButton();
         resposta2 = new javax.swing.JButton();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jProgressBar2 = new javax.swing.JProgressBar();
+        vidaJogadorBarra = new javax.swing.JProgressBar();
+        vidaInimigo = new javax.swing.JProgressBar();
         jScrollPane1 = new javax.swing.JScrollPane();
         areaPerg = new javax.swing.JTextPane();
 
@@ -82,7 +82,7 @@ public class TelaQuiz extends javax.swing.JFrame {
             }
         });
 
-        resposta1.setText(respostaAleatoria());
+        resposta1.setText("resposta1");
         resposta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resposta1ActionPerformed(evt);
@@ -106,12 +106,12 @@ public class TelaQuiz extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jProgressBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+                    .addComponent(vidaInimigo, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
                     .addComponent(resposta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(resposta1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
+                    .addComponent(vidaJogadorBarra, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
                     .addComponent(resposta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(resposta4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -127,9 +127,9 @@ public class TelaQuiz extends javax.swing.JFrame {
                         .addGap(0, 270, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(vidaInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 382, Short.MAX_VALUE)
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(vidaJogadorBarra, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(resposta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -199,12 +199,12 @@ public class TelaQuiz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextPane areaPerg;
-    private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton resposta1;
     private javax.swing.JButton resposta2;
     private javax.swing.JButton resposta3;
     private javax.swing.JButton resposta4;
+    private javax.swing.JProgressBar vidaInimigo;
+    private javax.swing.JProgressBar vidaJogadorBarra;
     // End of variables declaration//GEN-END:variables
 }
