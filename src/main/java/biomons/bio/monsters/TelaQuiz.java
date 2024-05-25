@@ -78,7 +78,7 @@ public class TelaQuiz extends javax.swing.JFrame {
         }
         while(newRespostas.size()<4){
             int index = rand.nextInt(contagem.size());
-            newRespostas.add(respostas.get(index));
+            newRespostas.add(respostas.get(contagem.get(index)));
             contagem.remove(index);
         }
         return newRespostas;
