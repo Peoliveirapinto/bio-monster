@@ -26,7 +26,7 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="vidaInimigo" pref="363" max="32767" attributes="0"/>
+                  <Component id="vidaInimigoBarra" pref="363" max="32767" attributes="0"/>
                   <Component id="resposta3" max="32767" attributes="0"/>
                   <Component id="resposta1" alignment="0" max="32767" attributes="0"/>
               </Group>
@@ -52,7 +52,7 @@
                       <Component id="jScrollPane1" min="-2" pref="206" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="vidaInimigo" min="-2" pref="13" max="-2" attributes="0"/>
+                      <Component id="vidaInimigoBarra" min="-2" pref="13" max="-2" attributes="0"/>
                       <EmptySpace pref="382" max="32767" attributes="0"/>
                       <Component id="vidaJogadorBarra" min="-2" pref="13" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -109,7 +109,7 @@
     </Component>
     <Component class="javax.swing.JProgressBar" name="vidaJogadorBarra">
     </Component>
-    <Component class="javax.swing.JProgressBar" name="vidaInimigo">
+    <Component class="javax.swing.JProgressBar" name="vidaInimigoBarra">
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>

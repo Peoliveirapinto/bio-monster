@@ -9,43 +9,124 @@ import java.util.*;
  * @author pedro
  */
 public class TelaQuiz extends javax.swing.JFrame {
-
-    public List<Pergunta> addPerguntas (int dificuldade){
-        List<Pergunta> perguntas = new ArrayList<Pergunta>();
+    public int dificuldade =1;
+    public int indexPergunta =1;
+    public int vidaJogador;
+    public int vidaInimigo;
+    public List<Pergunta> perguntas;
+    
+    
+    //adiciona as perguntas de uma dificuldade do banco de dados para uma lista randomizada
+    public void addPerguntas (int dificuldade){
 //        int k = count de perguntas na dificuldade escolhida
         for (int i=1; i=<k; i++){
 //            perguntas.add(pergunta com nivelDificulade=dificulade);
         }
-        return perguntas;
-    }
-    public Pergunta selectPergunta (List<Pergunta> perguntas, int indexPergunta){
-        return perguntas.get(indexPergunta);
-    }
+        perguntas = randPerguntas(perguntas);
+    } 
+    
+    //adiciona as respostas de uma pergunta do banco de dados para uma lista randomizada
     public List<Resposta> addRespostas(int idPergunta){
         List<Resposta> respostas = new ArrayList<Resposta>();
         for (int i=1; i=<4; i++){
 //            respostas.add(resposta com idPergunta=idPergunta e idResposta diferente do anterior)
         }
+        respostas = randRespostas(respostas);
         return respostas;
     }
+        
+    //randomiza uma lista de perguntas
+    public List<Pergunta> randPerguntas(List<Pergunta> perguntas){
+        int numPerguntas = perguntas.size();
+        Random rand = new Random();
+        List<Pergunta> newPerguntas = new ArrayList<>();
+        List<Integer> contagem = new ArrayList<>();
+        for (int i =0; i<numPerguntas ; i++){
+            contagem.add(i);
+        }
+        while(newPerguntas.size()<numPerguntas){
+            int index = rand.nextInt(contagem.size());
+            newPerguntas.add(perguntas.get(index));
+            contagem.remove(index);
+        }
+        return newPerguntas;
+    }
     
-    public Resposta selectResposta(List<Resposta> respostas, int indexResposta){
-        return respostas.get(indexResposta);
+    //randomiza uma lista de respostas
+    public List<Resposta> randRespostas(List<Resposta> respostas){
+        Random rand = new Random();
+        List<Resposta> newRespostas = new ArrayList<>();
+        List<Integer> contagem = new ArrayList<>();
+        for (int i =0; i<= 3; i++){
+            contagem.add(i);
+        }
+        while(newRespostas.size()<4){
+            int index = rand.nextInt(contagem.size());
+            newRespostas.add(respostas.get(index));
+            contagem.remove(index);
+        }
+        return newRespostas;
+    }
+    
+    //configuração inicial de uma dificuldade
+    public void initDificuldade(){
+        addPerguntas(dificuldade);
+        initPergunta();
+        int numPerguntas = perguntas.size();
+        vidaJogador = (numPerguntas)/2;
+        vidaInimigo = ((numPerguntas)/2)+1;
+        initBarraVida(vidaInimigoBarra,vidaInimigo);
+        initBarraVida(vidaJogadorBarra,vidaJogador);
+    }
+    
+    //configura os valores dos items da tela de uma pergunta 
+    public void initPergunta(){
+        List<Resposta> respostas = addRespostas((perguntas.get(indexPergunta)).getIdPergunta());
+        resposta1.setText((respostas.get(0)).getResposta());
+        resposta2.setText((respostas.get(1)).getResposta());
+        resposta3.setText((respostas.get(2)).getResposta());
+        resposta4.setText((respostas.get(3)).getResposta());
+        areaPerg.setText((perguntas.get(indexPergunta)).getPergunta());
+    }
+    
+        
+    //configura uma barra de vida
+    public void initBarraVida(javax.swing.JProgressBar barraVida, int vida){
+        barraVida.setMaximum(vida);
+        barraVida.setMinimum(0);
+        barraVida.setValue(vida);
+    }
+    
+    //comportamento de uma resposta correta
+    public void respondido(boolean certa){
+        if (certa == true){
+            vidaInimigo--;
+            vidaInimigoBarra.setValue(vidaInimigo);
+            if (vidaInimigo<=0) {
+                //mostrar tela intermeriaria e dificulade ++
+            } else {
+                //tela de acerto
+            }
+        } else {
+            vidaJogador--;
+            vidaJogadorBarra.setValue(vidaJogador);
+            if (vidaJogador<=0){
+                //mostrar tela de reiniciar dificuldade
+            } else{
+                //mostrar tela de correção
+            }
+        }
+        indexPergunta++;
+        initPergunta();
     }
 
     /**
      * Creates new form TelaQuiz
      */
     public TelaQuiz() {
-        int dificuldade = 1;
-        List<Pergunta> perguntas = addPerguntas(dificuldade);
-        int indexPergunta =1;
-        List<Resposta> respostas = addRespostas(indexPergunta);
-        int numPerguntas = perguntas.size();
-        int vidaJogador = (numPerguntas)/2;
-        int vidaInimigo = ((numPerguntas)/2)+1;
-        //
+
         initComponents();
+
     }
 
     /**
@@ -62,7 +143,7 @@ public class TelaQuiz extends javax.swing.JFrame {
         resposta1 = new javax.swing.JButton();
         resposta2 = new javax.swing.JButton();
         vidaJogadorBarra = new javax.swing.JProgressBar();
-        vidaInimigo = new javax.swing.JProgressBar();
+        vidaInimigoBarra = new javax.swing.JProgressBar();
         jScrollPane1 = new javax.swing.JScrollPane();
         areaPerg = new javax.swing.JTextPane();
 
@@ -106,7 +187,7 @@ public class TelaQuiz extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(vidaInimigo, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+                    .addComponent(vidaInimigoBarra, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
                     .addComponent(resposta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(resposta1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -127,7 +208,7 @@ public class TelaQuiz extends javax.swing.JFrame {
                         .addGap(0, 270, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(vidaInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(vidaInimigoBarra, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 382, Short.MAX_VALUE)
                         .addComponent(vidaJogadorBarra, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -204,7 +285,7 @@ public class TelaQuiz extends javax.swing.JFrame {
     private javax.swing.JButton resposta2;
     private javax.swing.JButton resposta3;
     private javax.swing.JButton resposta4;
-    private javax.swing.JProgressBar vidaInimigo;
+    private javax.swing.JProgressBar vidaInimigoBarra;
     private javax.swing.JProgressBar vidaJogadorBarra;
     // End of variables declaration//GEN-END:variables
 }
