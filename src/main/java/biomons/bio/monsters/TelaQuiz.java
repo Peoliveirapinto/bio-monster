@@ -13,24 +13,40 @@ public class TelaQuiz extends javax.swing.JFrame {
     public int indexPergunta =1;
     public int vidaJogador;
     public int vidaInimigo;
-    public List<Pergunta> perguntas;
+    public List<Pergunta> perguntas = new ArrayList<Pergunta>();
     
     
     //adiciona as perguntas de uma dificuldade do banco de dados para uma lista randomizada
     public void addPerguntas (int dificuldade){
-//        int k = count de perguntas na dificuldade escolhida
+        /*int k = //count de perguntas na dificuldade escolhida
         for (int i=1; i=<k; i++){
-//            perguntas.add(pergunta com nivelDificulade=dificulade);
-        }
+            //perguntas.add(pergunta com nivelDificulade=dificulade);
+        }*/
+        //teste
+        Pergunta pergunta1 = new Pergunta(1,"pergunta 1", 1);
+        Pergunta pergunta2 = new Pergunta(1,"pergunta 2", 2);
+        perguntas.add(pergunta1);
+        perguntas.add(pergunta2);
+        
         perguntas = randPerguntas(perguntas);
     } 
     
     //adiciona as respostas de uma pergunta do banco de dados para uma lista randomizada
     public List<Resposta> addRespostas(int idPergunta){
         List<Resposta> respostas = new ArrayList<Resposta>();
-        for (int i=1; i=<4; i++){
+        /*for (int i=1; i=<4; i++){
 //            respostas.add(resposta com idPergunta=idPergunta e idResposta diferente do anterior)
-        }
+        }*/
+        //teste
+        Resposta resp1 = new Resposta(true,"correta",1);
+        RespostaErrada resp2 = new RespostaErrada("errada1",1,"correct");
+        RespostaErrada resp3 = new RespostaErrada("errada2",1,"correct");
+        RespostaErrada resp4 = new RespostaErrada("errada3",1,"correct");
+        respostas.add(resp1);
+        respostas.add(resp2);
+        respostas.add(resp3);
+        respostas.add(resp4);
+        
         respostas = randRespostas(respostas);
         return respostas;
     }
@@ -126,6 +142,8 @@ public class TelaQuiz extends javax.swing.JFrame {
     public TelaQuiz() {
 
         initComponents();
+        
+        initDificuldade();
 
     }
 
