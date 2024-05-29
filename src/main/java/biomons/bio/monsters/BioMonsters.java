@@ -29,6 +29,10 @@ public class BioMonsters {
             telaQuiz.setVisible(true);
             acertos = telaQuiz.getAcertos();
             respostas = telaQuiz.getRespostas();
+            dificuldade++;
+            while(!telaQuiz.getPerdeu()){
+                
+            }
         }
         
     }

@@ -14,6 +14,11 @@ public class TelaQuiz extends javax.swing.JFrame {
     public int vidaInimigo;
     public int acertos;
     public int respostas;
+    public boolean perdeu = false;
+    public boolean resp1Certa;
+    public boolean resp2Certa;
+    public boolean resp3Certa;
+    public boolean resp4Certa;
     public List<Pergunta> perguntas = new ArrayList<Pergunta>();
     
     
@@ -99,6 +104,10 @@ public class TelaQuiz extends javax.swing.JFrame {
         this.respostas= respostas;
     }
     
+    public boolean getPerdeu(){
+        return perdeu;
+    }
+    
     //configuração inicial de uma dificuldade
     public void initDificuldade(int dificuldade, int acertos, int respostas){
         setAcertos(acertos);
@@ -119,6 +128,10 @@ public class TelaQuiz extends javax.swing.JFrame {
         resposta2.setText((respostas.get(1)).getResposta());
         resposta3.setText((respostas.get(2)).getResposta());
         resposta4.setText((respostas.get(3)).getResposta());
+        resp1Certa=(respostas.get(0)).getCerta();
+        resp2Certa=(respostas.get(1)).getCerta();
+        resp3Certa=(respostas.get(2)).getCerta();
+        resp4Certa=(respostas.get(3)).getCerta();
         areaPerg.setText((perguntas.get(indexPergunta)).getPergunta());
     }
     
@@ -270,6 +283,7 @@ public class TelaQuiz extends javax.swing.JFrame {
 
     private void resposta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta1ActionPerformed
         // TODO add your handling code here:
+        perdeu = true;
     }//GEN-LAST:event_resposta1ActionPerformed
 
     private void resposta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta2ActionPerformed
