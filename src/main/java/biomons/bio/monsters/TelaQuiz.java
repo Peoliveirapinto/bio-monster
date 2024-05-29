@@ -9,10 +9,11 @@ import java.util.*;
  * @author pedro
  */
 public class TelaQuiz extends javax.swing.JFrame {
-    public int dificuldade =1;
     public int indexPergunta =1;
     public int vidaJogador;
     public int vidaInimigo;
+    public int acertos;
+    public int respostas;
     public List<Pergunta> perguntas = new ArrayList<Pergunta>();
     
     
@@ -84,8 +85,24 @@ public class TelaQuiz extends javax.swing.JFrame {
         return newRespostas;
     }
     
+    public int getAcertos(){
+        return acertos;
+    }
+    public void setAcertos(int acertos){
+        this.acertos= acertos;
+    }
+    
+    public int getRespostas(){
+        return respostas;
+    }
+    public void setRespostas(int respostas){
+        this.respostas= respostas;
+    }
+    
     //configuração inicial de uma dificuldade
-    public void initDificuldade(){
+    public void initDificuldade(int dificuldade, int acertos, int respostas){
+        setAcertos(acertos);
+        setRespostas(respostas);
         addPerguntas(dificuldade);
         initPergunta();
         int numPerguntas = perguntas.size();
@@ -139,11 +156,11 @@ public class TelaQuiz extends javax.swing.JFrame {
     /**
      * Creates new form TelaQuiz
      */
-    public TelaQuiz() {
+    public TelaQuiz(int dificuldade,int acertos, int respostas) {
 
         initComponents();
         
-        initDificuldade();
+        initDificuldade(dificuldade, acertos, respostas);
 
     }
 
@@ -291,7 +308,7 @@ public class TelaQuiz extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaQuiz().setVisible(true);
+                
             }
         });
     }
