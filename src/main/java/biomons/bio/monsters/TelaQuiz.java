@@ -14,6 +14,7 @@ public class TelaQuiz extends javax.swing.JFrame {
     public int vidaInimigo;
     public int acertos;
     public int respostas;
+    public boolean acabou = false;
     public boolean perdeu = false;
     public boolean resp1Certa;
     public boolean resp2Certa;
@@ -104,6 +105,9 @@ public class TelaQuiz extends javax.swing.JFrame {
         this.respostas= respostas;
     }
     
+    public boolean getAcabou(){
+        return acabou;
+    }
     public boolean getPerdeu(){
         return perdeu;
     }
@@ -283,7 +287,7 @@ public class TelaQuiz extends javax.swing.JFrame {
 
     private void resposta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta1ActionPerformed
         // TODO add your handling code here:
-        perdeu = true;
+        acabou = true;
     }//GEN-LAST:event_resposta1ActionPerformed
 
     private void resposta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta2ActionPerformed
