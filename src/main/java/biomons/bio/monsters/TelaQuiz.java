@@ -155,19 +155,16 @@ public class TelaQuiz extends javax.swing.JFrame {
                 vidaInimigo--;
                 acertos++;
                 vidaInimigoBarra.setValue(vidaInimigo);
-                if (vidaInimigo<=0) {
-                    perdeu = false;
-                    acabou = true;
-                }
             } else {
                 vidaJogador--;
                 vidaJogadorBarra.setValue(vidaJogador);
-                if (vidaJogador<=0){
-                    perdeu = true;
-                    acabou = true;
-                }
             }
             perguntaRespondidaFunc(certa, respNum);
+        } else if (vidaInimigo<=0){
+            acabou = true;
+        }else if (vidaJogador<=0){
+            perdeu = true;
+            acabou = true;
         }else{
             indexPergunta++;
             initPergunta();
