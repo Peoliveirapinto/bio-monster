@@ -120,7 +120,7 @@ public class TelaQuiz extends javax.swing.JFrame {
         initPergunta();
         int numPerguntas = perguntas.size();
         vidaJogador = (numPerguntas)/2;
-        vidaInimigo = ((numPerguntas)/2)+1;
+        vidaInimigo = (numPerguntas)/2;
         initBarraVida(vidaInimigoBarra,vidaInimigo);
         initBarraVida(vidaJogadorBarra,vidaJogador);
     }
