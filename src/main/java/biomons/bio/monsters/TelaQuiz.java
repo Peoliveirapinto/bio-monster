@@ -13,15 +13,16 @@ public class TelaQuiz extends javax.swing.JFrame {
     public int vidaJogador;
     public int vidaInimigo;
     public int acertos;
-    public int respostas;
+    public int respondidas;
     public boolean acabou = false;
     public boolean perdeu = false;
     public boolean resp1Certa;
     public boolean resp2Certa;
     public boolean resp3Certa;
     public boolean resp4Certa;
+    public boolean perguntaRespondida = false;
     public List<Pergunta> perguntas = new ArrayList<Pergunta>();
-    
+    public List<Resposta> respostas = new ArrayList<Resposta>();
     
     //adiciona as perguntas de uma dificuldade do banco de dados para uma lista randomizada
     public void addPerguntas (int dificuldade){
@@ -39,8 +40,8 @@ public class TelaQuiz extends javax.swing.JFrame {
     } 
     
     //adiciona as respostas de uma pergunta do banco de dados para uma lista randomizada
-    public List<Resposta> addRespostas(int idPergunta){
-        List<Resposta> respostas = new ArrayList<Resposta>();
+    public void addRespostas(int idPergunta){
+        respostas = new ArrayList<Resposta>();
         /*for (int i=1; i=<4; i++){
 //            respostas.add(resposta com idPergunta=idPergunta e idResposta diferente do anterior)
         }*/
@@ -55,7 +56,6 @@ public class TelaQuiz extends javax.swing.JFrame {
         respostas.add(resp4);
         
         respostas = randRespostas(respostas);
-        return respostas;
     }
         
     //randomiza uma lista de perguntas
@@ -98,11 +98,11 @@ public class TelaQuiz extends javax.swing.JFrame {
         this.acertos= acertos;
     }
     
-    public int getRespostas(){
-        return respostas;
+    public int getRespondidas(){
+        return respondidas;
     }
-    public void setRespostas(int respostas){
-        this.respostas= respostas;
+    public void setRespondidas(int respondidas){
+        this.respondidas= respondidas;
     }
     
     public boolean getAcabou(){
@@ -113,9 +113,9 @@ public class TelaQuiz extends javax.swing.JFrame {
     }
     
     //configuração inicial de uma dificuldade
-    public void initDificuldade(int dificuldade, int acertos, int respostas){
+    public void initDificuldade(int dificuldade, int acertos, int respondidas){
         setAcertos(acertos);
-        setRespostas(respostas);
+        setRespondidas(respondidas);
         addPerguntas(dificuldade);
         initPergunta();
         int numPerguntas = perguntas.size();
@@ -127,7 +127,7 @@ public class TelaQuiz extends javax.swing.JFrame {
     
     //configura os valores dos items da tela de uma pergunta 
     public void initPergunta(){
-        List<Resposta> respostas = addRespostas((perguntas.get(indexPergunta)).getIdPergunta());
+        addRespostas((perguntas.get(indexPergunta)).getIdPergunta());
         resposta1.setText((respostas.get(0)).getResposta());
         resposta2.setText((respostas.get(1)).getResposta());
         resposta3.setText((respostas.get(2)).getResposta());
@@ -147,37 +147,56 @@ public class TelaQuiz extends javax.swing.JFrame {
         barraVida.setValue(vida);
     }
     
-    //comportamento de uma resposta correta
-    public void respondido(boolean certa){
-        if (certa == true){
-            vidaInimigo--;
-            vidaInimigoBarra.setValue(vidaInimigo);
-            if (vidaInimigo<=0) {
-                //mostrar tela intermeriaria e dificulade ++
+    //comportamento de uma resposta
+    public void respondido(int respNum){
+        if (!perguntaRespondida){
+            boolean certa = (respostas.get(respNum)).getCerta();
+            if (certa == true){
+                vidaInimigo--;
+                acertos++;
+                vidaInimigoBarra.setValue(vidaInimigo);
+                if (vidaInimigo<=0) {
+                    perdeu = false;
+                    acabou = true;
+                }
             } else {
-                //tela de acerto
+                vidaJogador--;
+                vidaJogadorBarra.setValue(vidaJogador);
+                if (vidaJogador<=0){
+                    perdeu = true;
+                    acabou = true;
+                }
             }
-        } else {
-            vidaJogador--;
-            vidaJogadorBarra.setValue(vidaJogador);
-            if (vidaJogador<=0){
-                //mostrar tela de reiniciar dificuldade
-            } else{
-                //mostrar tela de correção
-            }
+            perguntaRespondidaFunc(certa, respNum);
+        }else{
+            indexPergunta++;
+            initPergunta();
         }
-        indexPergunta++;
-        initPergunta();
+    }
+    
+    public void perguntaRespondidaFunc(boolean certa,int respNum){
+        resposta1.setText("Continuar");
+        resposta2.setText("Continuar");
+        resposta3.setText("Continuar");
+        resposta4.setText("Continuar");
+        if (certa){
+            areaPerg.setText("Você acertou!!!");
+        } else{
+            RespostaErrada respErrada = (RespostaErrada) respostas.get(respNum);
+            areaPerg.setText("Correção: " + (respErrada).getCorrect());
+        }
+        perguntaRespondida = true;
+        respondidas++;
     }
 
     /**
      * Creates new form TelaQuiz
      */
-    public TelaQuiz(int dificuldade,int acertos, int respostas) {
+    public TelaQuiz(int dificuldade,int acertos, int respondidas) {
 
         initComponents();
         
-        initDificuldade(dificuldade, acertos, respostas);
+        initDificuldade(dificuldade, acertos, respondidas);
 
     }
 
@@ -278,20 +297,19 @@ public class TelaQuiz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void resposta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta3ActionPerformed
-        // TODO add your handling code here:
+        respondido(2);
     }//GEN-LAST:event_resposta3ActionPerformed
 
     private void resposta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta4ActionPerformed
-        // TODO add your handling code here:
+        respondido(3);
     }//GEN-LAST:event_resposta4ActionPerformed
 
     private void resposta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta1ActionPerformed
-        // TODO add your handling code here:
-        acabou = true;
+        respondido(0);
     }//GEN-LAST:event_resposta1ActionPerformed
 
     private void resposta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta2ActionPerformed
-        // TODO add your handling code here:
+        respondido(1);
     }//GEN-LAST:event_resposta2ActionPerformed
 
     /**

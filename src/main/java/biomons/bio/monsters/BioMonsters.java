@@ -18,20 +18,20 @@ public class BioMonsters {
         //int codeSala = retorno do valor da sala
         
         int acertos=0;
-        int respostas=0;
+        int respondidas=0;
         int dificuldade = 1;
         
         //int numDificuldades = count de dificuldades da sala;
         //teste
         int numDificuldade =4;
         while (dificuldade <= numDificuldade){
-            TelaQuiz telaQuiz = new TelaQuiz(dificuldade,acertos,respostas);
+            TelaQuiz telaQuiz = new TelaQuiz(dificuldade,acertos,respondidas);
             telaQuiz.setVisible(true);
             while(!telaQuiz.getAcabou()){}
             telaQuiz.dispose();
             if (!telaQuiz.getPerdeu()){
                 acertos = telaQuiz.getAcertos();
-                respostas = telaQuiz.getRespostas();
+                respondidas = telaQuiz.getRespondidas();
                 dificuldade++;
             }
             telaQuiz.dispose();
