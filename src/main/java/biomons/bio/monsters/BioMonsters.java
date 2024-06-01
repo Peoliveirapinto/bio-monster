@@ -14,8 +14,10 @@ public class BioMonsters {
 
     
     public static void main(String[] args) {
-        JFrame frame = new JFrame();
+        GameFrame frame = new GameFrame();
         //chama tela inicial
+        
+
         
         //chama tela de inserir codigo da sala
         //int codeSala = retorno do valor da sala
@@ -30,6 +32,7 @@ public class BioMonsters {
         while (dificuldade <= numDificuldade){
             TelaQuiz telaQuiz = new TelaQuiz(dificuldade,acertos,respondidas);
             frame.add(telaQuiz);
+            frame.setVisible(true);
             while(!telaQuiz.getAcabou()){}
             if (!telaQuiz.getPerdeu()){
                 acertos = telaQuiz.getAcertos();
