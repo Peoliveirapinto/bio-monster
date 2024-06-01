@@ -4,7 +4,6 @@
 
 package biomons.bio.monsters;
 
-import javax.swing.JFrame;
 
 /**
  *
@@ -31,7 +30,9 @@ public class BioMonsters {
         int numDificuldade =4;
         while (dificuldade <= numDificuldade){
             TelaQuiz telaQuiz = new TelaQuiz(dificuldade,acertos,respondidas);
-            frame.add(telaQuiz);
+            frame.getContentPane().add(telaQuiz);
+            frame.setSize(720,480);
+            telaQuiz.setVisible(true);
             frame.setVisible(true);
             while(!telaQuiz.getAcabou()){}
             if (!telaQuiz.getPerdeu()){
@@ -39,7 +40,7 @@ public class BioMonsters {
                 respondidas = telaQuiz.getRespondidas();
                 dificuldade++;
             }
-            
+            frame.getContentPane().remove(telaQuiz);
         }
         
         // tela de resultados
