@@ -4,6 +4,8 @@
 
 package biomons.bio.monsters;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author pedro
@@ -12,6 +14,7 @@ public class BioMonsters {
 
     
     public static void main(String[] args) {
+        JFrame frame = new JFrame();
         //chama tela inicial
         
         //chama tela de inserir codigo da sala
@@ -26,14 +29,14 @@ public class BioMonsters {
         int numDificuldade =4;
         while (dificuldade <= numDificuldade){
             TelaQuiz telaQuiz = new TelaQuiz(dificuldade,acertos,respondidas);
-            telaQuiz.setVisible(true);
+            frame.add(telaQuiz);
             while(!telaQuiz.getAcabou()){}
             if (!telaQuiz.getPerdeu()){
                 acertos = telaQuiz.getAcertos();
                 respondidas = telaQuiz.getRespondidas();
                 dificuldade++;
             }
-            telaQuiz.dispose();
+            
         }
         
         // tela de resultados
