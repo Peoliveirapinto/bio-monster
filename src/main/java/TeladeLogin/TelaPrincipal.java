@@ -27,9 +27,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         jLabel2.setText("jLabel2");
 
@@ -42,6 +43,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(400, 300));
         getContentPane().setLayout(null);
 
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TeladeLogin/LoginProfessor.jpeg"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        getContentPane().add(jButton2);
+        jButton2.setBounds(40, 10, 210, 20);
+
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TeladeLogin/BotãoDeInicio.jpeg"))); // NOI18N
         jButton1.setBorderPainted(false);
@@ -53,12 +60,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(60, 210, 170, 30);
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TeladeLogin/LoginProfessor.jpeg"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        getContentPane().add(jButton2);
-        jButton2.setBounds(40, 10, 210, 20);
-
         jLabel1.setForeground(new java.awt.Color(51, 0, 51));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TeladeLogin/TelaInicial.biomonters_400_300.jpeg"))); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -68,6 +69,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 400, 300);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 400, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -120,5 +123,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
