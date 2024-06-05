@@ -46,6 +46,13 @@ public class BioMonsters {
                 while(!telaInter.getContinuar()){}
                 frame.getContentPane().remove(telaInter);
                 dificuldade++;
+            }else{
+                TelaPerdeu telaPerdeu = new TelaPerdeu();
+                frame.getContentPane().add(telaPerdeu);
+                telaPerdeu.setVisible(true);
+                frame.setVisible(true);
+                while(!telaPerdeu.getTentarDeNovo()){}
+                frame.getContentPane().remove(telaPerdeu);
             }
             frame.getContentPane().remove(telaQuiz);
         }
