@@ -46,6 +46,7 @@ public class BioMonsters {
         TelaResultados telaResult = new TelaResultados(acertos,respondidas);
         frame.getContentPane().add(telaResult);
         telaResult.setVisible(true);
+        frame.setVisible(true);
         
     }
 }
