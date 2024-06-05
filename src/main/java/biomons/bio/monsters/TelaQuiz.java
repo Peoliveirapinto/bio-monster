@@ -13,20 +13,20 @@ import java.util.Random;
  * @author pedro
  */
 public class TelaQuiz extends javax.swing.JPanel {
-    public int indexPergunta =1;
-    public int vidaJogador;
-    public int vidaInimigo;
-    public int acertos;
-    public int respondidas;
-    public boolean acabou = false;
-    public boolean perdeu = false;
-    public boolean resp1Certa;
-    public boolean resp2Certa;
-    public boolean resp3Certa;
-    public boolean resp4Certa;
-    public boolean perguntaRespondida = false;
-    public List<Pergunta> perguntas = new ArrayList<Pergunta>();
-    public List<Resposta> respostas = new ArrayList<Resposta>();
+    private int indexPergunta =1;
+    private int vidaJogador;
+    private int vidaInimigo;
+    private int acertos;
+    private int respondidas;
+    private boolean acabou = false;
+    private boolean perdeu = false;
+    private boolean resp1Certa;
+    private boolean resp2Certa;
+    private boolean resp3Certa;
+    private boolean resp4Certa;
+    private boolean perguntaRespondida = false;
+    private List<Pergunta> perguntas = new ArrayList<Pergunta>();
+    private List<Resposta> respostas = new ArrayList<Resposta>();
     
     //adiciona as perguntas de uma dificuldade do banco de dados para uma lista randomizada
     public void addPerguntas (int dificuldade){

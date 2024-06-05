@@ -31,19 +31,38 @@ public class BioMonsters {
         
         while (dificuldade <= numDificuldade){
             TelaQuiz telaQuiz = new TelaQuiz(dificuldade,acertos,respondidas);
+            TelaInterDificuldade telaInter = new TelaInterDificuldade();
+            TelaPerdeu telaPerdeu = new TelaPerdeu();
             frame.getContentPane().add(telaQuiz);
             telaQuiz.setVisible(true);
             frame.setVisible(true);
             while(!telaQuiz.getAcabou()){}
-            if (!telaQuiz.getPerdeu()){
+            boolean perdeu = telaQuiz.getPerdeu();
+            if (!perdeu){
                 acertos = telaQuiz.getAcertos();
                 respondidas = telaQuiz.getRespondidas();
+                frame.getContentPane().add(telaInter);
+                telaInter.setVisible(true);
+                telaQuiz.setVisible(false);
+                frame.setVisible(true);
+                while(!telaInter.getContinuar()){}
+                frame.getContentPane().remove(telaInter);
                 dificuldade++;
+            }else{
+                frame.getContentPane().add(telaPerdeu);
+                telaPerdeu.setVisible(true);
+                telaQuiz.setVisible(false);
+                frame.setVisible(true);
+                while(!telaPerdeu.getTentarDeNovo()){}
+                frame.getContentPane().remove(telaPerdeu);
             }
             frame.getContentPane().remove(telaQuiz);
         }
         
-        // tela de resultados
+        TelaResultados telaResult = new TelaResultados(acertos,respondidas);
+        frame.getContentPane().add(telaResult);
+        telaResult.setVisible(true);
+        frame.setVisible(true);
         
     }
 }
