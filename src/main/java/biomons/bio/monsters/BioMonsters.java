@@ -38,7 +38,7 @@ public class BioMonsters {
             if (!telaQuiz.getPerdeu()){
                 acertos = telaQuiz.getAcertos();
                 respondidas = telaQuiz.getRespondidas();
-                telaQuiz.setVisible(false);
+                frame.getContentPane().remove(telaQuiz);
                 TelaInterDificuldade telaInter = new TelaInterDificuldade();
                 frame.getContentPane().add(telaInter);
                 telaInter.setVisible(true);
@@ -47,6 +47,7 @@ public class BioMonsters {
                 frame.getContentPane().remove(telaInter);
                 dificuldade++;
             }else{
+                frame.getContentPane().remove(telaQuiz);
                 TelaPerdeu telaPerdeu = new TelaPerdeu();
                 frame.getContentPane().add(telaPerdeu);
                 telaPerdeu.setVisible(true);
@@ -54,7 +55,7 @@ public class BioMonsters {
                 while(!telaPerdeu.getTentarDeNovo()){}
                 frame.getContentPane().remove(telaPerdeu);
             }
-            frame.getContentPane().remove(telaQuiz);
+            
         }
         
         TelaResultados telaResult = new TelaResultados(acertos,respondidas);
