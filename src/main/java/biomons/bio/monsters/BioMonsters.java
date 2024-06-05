@@ -43,7 +43,9 @@ public class BioMonsters {
             frame.getContentPane().remove(telaQuiz);
         }
         
-        // tela de resultados
+        TelaResultados telaResult = new TelaResultados(acertos,respondidas);
+        frame.getContentPane().add(telaResult);
+        telaResult.setVisible(true);
         
     }
 }
