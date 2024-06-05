@@ -9,8 +9,8 @@ package biomons.bio.monsters;
  * @author pedro
  */
 public class TelaInterDificuldade extends javax.swing.JPanel {
-    public boolean continuar = false;
-    public boolean index = false;
+    private boolean continuar = false;
+    private boolean index = false;
     
     public boolean getContinuar(){
         return continuar;
@@ -36,6 +36,8 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
 
         continuarButton = new javax.swing.JButton();
         indexBioMons = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textArea = new javax.swing.JTextArea();
 
         continuarButton.setText("Continuar");
         continuarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +53,11 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
             }
         });
 
+        textArea.setColumns(20);
+        textArea.setRows(5);
+        textArea.setText("Nivel Concluído");
+        jScrollPane1.setViewportView(textArea);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -58,18 +65,21 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(98, 98, 98)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(indexBioMons)
                     .addComponent(continuarButton))
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(continuarButton)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(indexBioMons)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -87,5 +97,7 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton continuarButton;
     private javax.swing.JButton indexBioMons;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea textArea;
     // End of variables declaration//GEN-END:variables
 }

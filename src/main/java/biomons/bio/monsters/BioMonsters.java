@@ -43,7 +43,7 @@ public class BioMonsters {
                 frame.getContentPane().add(telaInter);
                 telaInter.setVisible(true);
                 frame.setVisible(true);
-                while(!telaInter.continuar){}
+                while(!telaInter.getContinuar()){}
                 frame.getContentPane().remove(telaInter);
                 dificuldade++;
             }
