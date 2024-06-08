@@ -4,8 +4,6 @@
  */
 package biomons.bio.monsters;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  *
@@ -21,7 +19,7 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
     public boolean getIndex(){
         return index;
     }
-    
+
     /**
      * Creates new form TelaInterDificuldade
      */

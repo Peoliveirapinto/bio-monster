@@ -18,6 +18,9 @@ public class BioMonsters {
         
         frame.setSize(720,480);
         
+        Thread t = new Thread();
+        t.start();
+        
         //chama tela de inserir codigo da sala
         //int codeSala = retorno do valor da sala
         
@@ -26,13 +29,17 @@ public class BioMonsters {
         int dificuldade = 1;
         
         while (dificuldade <= 4){
-            TelaQuiz telaQuiz = new TelaQuiz(dificuldade,acertos,respondidas);
+            TelaQuiz telaQuiz = new TelaQuiz(dificuldade,acertos,respondidas, t);
             TelaInterDificuldade telaInter = new TelaInterDificuldade();
             TelaPerdeu telaPerdeu = new TelaPerdeu();
             frame.getContentPane().add(telaQuiz);
             telaQuiz.setVisible(true);
             frame.setVisible(true);
-            while(!telaQuiz.getAcabou()){}
+            synchronized(t){
+                try{
+                    t.wait();
+                }catch(InterruptedException e){}
+            }
             boolean perdeu = telaQuiz.getPerdeu();
             if (!perdeu){
                 acertos = telaQuiz.getAcertos();

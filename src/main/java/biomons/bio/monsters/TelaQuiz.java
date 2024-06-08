@@ -18,7 +18,6 @@ public class TelaQuiz extends javax.swing.JPanel {
     private int vidaInimigo;
     private int acertos;
     private int respondidas;
-    private boolean acabou = false;
     private boolean perdeu = false;
     private boolean resp1Certa;
     private boolean resp2Certa;
@@ -27,6 +26,7 @@ public class TelaQuiz extends javax.swing.JPanel {
     private boolean perguntaRespondida = false;
     private List<Pergunta> perguntas = new ArrayList<Pergunta>();
     private List<Resposta> respostas = new ArrayList<Resposta>();
+    private Thread thrd;
     
     //adiciona as perguntas de uma dificuldade do banco de dados para uma lista randomizada
     public void addPerguntas (int dificuldade){
@@ -108,10 +108,6 @@ public class TelaQuiz extends javax.swing.JPanel {
     public void setRespondidas(int respondidas){
         this.respondidas= respondidas;
     }
-    
-    public boolean getAcabou(){
-        return acabou;
-    }
     public boolean getPerdeu(){
         return perdeu;
     }
@@ -165,10 +161,14 @@ public class TelaQuiz extends javax.swing.JPanel {
             }
             perguntaRespondidaFunc(certa, respNum);
         } else if (vidaInimigo<=0){
-            acabou = true;
+            synchronized(thrd){
+                notify();
+            }
         }else if (vidaJogador<=0){
             perdeu = true;
-            acabou = true;
+            synchronized(thrd){
+                notify();
+            }
         }else{
             indexPergunta++;
             initPergunta();
@@ -193,9 +193,9 @@ public class TelaQuiz extends javax.swing.JPanel {
     /**
      * Creates new form panelTest
      */
-    public TelaQuiz(int dificuldade,int acertos, int respondidas) {
+    public TelaQuiz(int dificuldade,int acertos, int respondidas, Thread t) {
         initComponents();
-        
+        thrd = t;
         initDificuldade(dificuldade, acertos, respondidas);
     }
 

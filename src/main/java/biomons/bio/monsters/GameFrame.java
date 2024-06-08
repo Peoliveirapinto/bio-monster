@@ -27,7 +27,7 @@ public class GameFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
+        getContentPane().setLayout(new java.awt.FlowLayout());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
