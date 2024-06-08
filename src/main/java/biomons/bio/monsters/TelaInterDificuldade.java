@@ -14,6 +14,15 @@ import java.util.concurrent.Semaphore;
 public class TelaInterDificuldade extends javax.swing.JPanel {
     private InterContinuarListener listener;
     private final Semaphore semaphore = new Semaphore(0);
+    private int codeSala;
+    private int dificuldade;
+    
+    public void setCodeSala(int codeSala){
+        this.codeSala=codeSala;
+    }
+    public void setDificuldade(int dificuldade){
+        this.dificuldade = dificuldade;
+    }
     
     public void waitInterContinuar() throws InterruptedException {
         semaphore.acquire();
@@ -22,7 +31,9 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
     /**
      * Creates new form TelaInterDificuldade
      */
-    public TelaInterDificuldade() {
+    public TelaInterDificuldade(int codeSala,int dificuldade) {
+        setCodeSala(codeSala);
+        setDificuldade(dificuldade);
         initComponents();
     }
 
@@ -93,10 +104,7 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
     }//GEN-LAST:event_continuarButtonActionPerformed
 
     private void indexBioMonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indexBioMonsActionPerformed
-         if (listener != null) {
-            listener.onInterContinuarClick();
-        }
-        semaphore.release();
+        new IndexInimigos(dificuldade,codeSala).setVisible(true);
     }//GEN-LAST:event_indexBioMonsActionPerformed
 
 
