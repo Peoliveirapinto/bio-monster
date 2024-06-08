@@ -4,28 +4,32 @@
  */
 package biomons.bio.monsters;
 
+import java.util.concurrent.Semaphore;
+
 
 /**
  *
  * @author pedro
  */
 public class TelaInterDificuldade extends javax.swing.JPanel {
-    private boolean continuar = false;
-    private boolean index = false;
+    private InterContinuarListener listener;
+    private final Semaphore semaphore = new Semaphore(0);
     
-    public boolean getContinuar(){
-        return continuar;
+    public void setInterContinuarListener(InterContinuarListener listener) {
+        this.listener = listener;
     }
-    public boolean getIndex(){
-        return index;
+    
+    public void waitInterContinuar() throws InterruptedException {
+        semaphore.acquire();
     }
-
+    
     /**
      * Creates new form TelaInterDificuldade
      */
     public TelaInterDificuldade() {
         initComponents();
     }
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -86,11 +90,17 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void continuarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarButtonActionPerformed
-        continuar = true;
+        if (listener != null) {
+            listener.onInterContinuarClick();
+        }
+        semaphore.release();
     }//GEN-LAST:event_continuarButtonActionPerformed
 
     private void indexBioMonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indexBioMonsActionPerformed
-        index=true;
+         if (listener != null) {
+            listener.onInterContinuarClick();
+        }
+        semaphore.release();
     }//GEN-LAST:event_indexBioMonsActionPerformed
 
 

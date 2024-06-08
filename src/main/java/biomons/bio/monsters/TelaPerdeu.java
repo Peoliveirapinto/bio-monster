@@ -4,15 +4,21 @@
  */
 package biomons.bio.monsters;
 
+import java.util.concurrent.Semaphore;
+
 /**
  *
  * @author pedro
  */
 public class TelaPerdeu extends javax.swing.JPanel {
-    private boolean tentarDeNovo = false;
+    private final Semaphore semaphore = new Semaphore(0);
+    private PerdeuListener listener;
     
-    public boolean getTentarDeNovo(){
-        return tentarDeNovo;
+    public void setPedeuListener(PerdeuListener listener) {
+        this.listener = listener;
+    }
+    public void waitTryAgain() throws InterruptedException {
+        semaphore.acquire();
     }
     /**
      * Creates new form TelaPerdeu
@@ -72,8 +78,10 @@ public class TelaPerdeu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tryAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tryAgainActionPerformed
-        // TODO add your handling code here:
-        tentarDeNovo = true;
+        if (listener != null) {
+            listener.onTryAgainClick();
+        }
+        semaphore.release();
     }//GEN-LAST:event_tryAgainActionPerformed
 
 

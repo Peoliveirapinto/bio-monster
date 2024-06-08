@@ -19,6 +19,7 @@ public class TelaQuiz extends javax.swing.JPanel {
     private int acertos;
     private int respondidas;
     private boolean perdeu = false;
+    private boolean acabou = false;
     private boolean resp1Certa;
     private boolean resp2Certa;
     private boolean resp3Certa;
@@ -26,7 +27,6 @@ public class TelaQuiz extends javax.swing.JPanel {
     private boolean perguntaRespondida = false;
     private List<Pergunta> perguntas = new ArrayList<Pergunta>();
     private List<Resposta> respostas = new ArrayList<Resposta>();
-    public static Object obj = new Object();
     
     //adiciona as perguntas de uma dificuldade do banco de dados para uma lista randomizada
     public void addPerguntas (int dificuldade){
@@ -111,6 +111,9 @@ public class TelaQuiz extends javax.swing.JPanel {
     public boolean getPerdeu(){
         return perdeu;
     }
+    public boolean getAcabou(){
+        return acabou;
+    }
     
     //configuração inicial de uma dificuldade
     public void initDificuldade(int dificuldade, int acertos, int respondidas){
@@ -161,14 +164,10 @@ public class TelaQuiz extends javax.swing.JPanel {
             }
             perguntaRespondidaFunc(certa, respNum);
         } else if (vidaInimigo<=0){
-            synchronized(obj){
-                notifyAll();
-            }
+            acabou = true;
         }else if (vidaJogador<=0){
             perdeu = true;
-            synchronized(obj){
-                notifyAll();
-            }
+            acabou = true;
         }else{
             indexPergunta++;
             initPergunta();

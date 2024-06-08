@@ -4,6 +4,9 @@
 
 package biomons.bio.monsters;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -33,11 +36,7 @@ public class BioMonsters {
             frame.getContentPane().add(telaQuiz);
             telaQuiz.setVisible(true);
             frame.setVisible(true);
-            synchronized(TelaQuiz.obj){
-                try{
-                    TelaQuiz.obj.wait();
-                }catch(InterruptedException e){}
-            }
+            while(!telaQuiz.getAcabou()){}
             boolean perdeu = telaQuiz.getPerdeu();
             if (!perdeu){
                 acertos = telaQuiz.getAcertos();
@@ -46,14 +45,26 @@ public class BioMonsters {
                 frame.getContentPane().add(telaInter);
                 telaInter.setVisible(true);
                 frame.setVisible(true);
-                while(!telaInter.getContinuar())
+                telaInter.setInterContinuarListener(new InterContinuarListener(){
+                    public void onInterContinuarClick(){}
+                });
+                try {
+                    telaInter.waitInterContinuar(); // Aguarda até que o botão seja clicado
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 dificuldade++;
             }else{
                 frame.getContentPane().removeAll();
                 frame.getContentPane().add(telaPerdeu);
                 telaPerdeu.setVisible(true);
                 frame.setVisible(true);
-                while(!telaPerdeu.getTentarDeNovo()){}
+                try {
+                    telaPerdeu.waitTryAgain(); // Aguarda até que o botão seja clicado
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
             frame.getContentPane().removeAll();
         }
