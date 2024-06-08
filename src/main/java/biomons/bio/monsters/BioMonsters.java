@@ -18,14 +18,26 @@ public class BioMonsters {
         frame.setSize(720,480);
         
         
-        //chama tela de inserir codigo da sala
-        //int codeSala = retorno do valor da sala
-        
+        TelaInserirSala telaSala = new TelaInserirSala();
+        frame.getContentPane().add(telaSala);
+        telaSala.setVisible(true);
+        frame.setVisible(true);
+        telaSala.setSalaListener(new SalaListener(){
+            public void onSalaClick(){}
+        });
+        try {
+            telaSala.waitSala();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        int codeSala = telaSala.getCodeSala();
+        //se o code sala não estiver na tabela codeSala = 1;
         int acertos=0;
         int respondidas=0;
         int dificuldade = 1;
         
         while (dificuldade <= 4){
+            frame.getContentPane().removeAll();
             TelaQuiz telaQuiz = new TelaQuiz(dificuldade,acertos,respondidas);
             TelaInterDificuldade telaInter = new TelaInterDificuldade();
             TelaPerdeu telaPerdeu = new TelaPerdeu();
@@ -45,7 +57,7 @@ public class BioMonsters {
                     public void onInterContinuarClick(){}
                 });
                 try {
-                    telaInter.waitInterContinuar(); // Aguarda até que o botão seja clicado
+                    telaInter.waitInterContinuar();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -57,12 +69,11 @@ public class BioMonsters {
                 telaPerdeu.setVisible(true);
                 frame.setVisible(true);
                 try {
-                    telaPerdeu.waitTryAgain(); // Aguarda até que o botão seja clicado
+                    telaPerdeu.waitTryAgain();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            frame.getContentPane().removeAll();
         }
         frame.getContentPane().removeAll();
         TelaResultados telaResult = new TelaResultados(acertos,respondidas);
