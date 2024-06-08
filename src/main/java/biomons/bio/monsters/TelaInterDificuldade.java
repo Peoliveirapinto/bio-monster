@@ -88,11 +88,11 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void continuarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarButtonActionPerformed
-
+        continuar = true;
     }//GEN-LAST:event_continuarButtonActionPerformed
 
     private void indexBioMonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indexBioMonsActionPerformed
-
+        index=true;
     }//GEN-LAST:event_indexBioMonsActionPerformed
 
 
