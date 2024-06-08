@@ -4,20 +4,21 @@
  */
 package biomons.bio.monsters;
 
+import java.util.concurrent.Semaphore;
+
+
 /**
  *
  * @author pedro
  */
 public class TelaInterDificuldade extends javax.swing.JPanel {
-    private boolean continuar = false;
-    private boolean index = false;
+    private InterContinuarListener listener;
+    private final Semaphore semaphore = new Semaphore(0);
     
-    public boolean getContinuar(){
-        return continuar;
+    public void waitInterContinuar() throws InterruptedException {
+        semaphore.acquire();
     }
-    public boolean getIndex(){
-        return index;
-    }
+    
     /**
      * Creates new form TelaInterDificuldade
      */
@@ -25,6 +26,7 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
         initComponents();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,13 +86,17 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void continuarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarButtonActionPerformed
-        // TODO add your handling code here:
-        continuar = true;
+        if (listener != null) {
+            listener.onInterContinuarClick();
+        }
+        semaphore.release();
     }//GEN-LAST:event_continuarButtonActionPerformed
 
     private void indexBioMonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indexBioMonsActionPerformed
-        // TODO add your handling code here:
-        index = true;
+         if (listener != null) {
+            listener.onInterContinuarClick();
+        }
+        semaphore.release();
     }//GEN-LAST:event_indexBioMonsActionPerformed
 
 

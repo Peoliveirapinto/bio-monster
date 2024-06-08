@@ -4,6 +4,7 @@
 
 package biomons.bio.monsters;
 
+import TeladeLogin.TelaPrincipal;
 
 /**
  *
@@ -14,23 +15,27 @@ public class BioMonsters {
     
     public static void main(String[] args) {
         GameFrame frame = new GameFrame();
-        //chama tela inicial
-        
         frame.setSize(720,480);
-        
-        //chama tela de inserir codigo da sala
-        //int codeSala = retorno do valor da sala
+
+        TelaInserirSala telaSala = new TelaInserirSala();
+        frame.getContentPane().add(telaSala);
+        telaSala.setVisible(true);
+        frame.setVisible(true);
+        try {
+            telaSala.waitSala();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        int codeSala = telaSala.getCodeSala();
+        //se o code sala não estiver na tabela codeSala = 1;
         
         int acertos=0;
         int respondidas=0;
         int dificuldade = 1;
         
-        //int numDificuldades = count de dificuldades da sala;
-        //teste
-        int numDificuldade =4;
-        
-        while (dificuldade <= numDificuldade){
-            TelaQuiz telaQuiz = new TelaQuiz(dificuldade,acertos,respondidas);
+        while (dificuldade <= 4){
+            frame.getContentPane().removeAll();
+            TelaQuiz telaQuiz = new TelaQuiz(dificuldade,acertos,respondidas,codeSala);
             TelaInterDificuldade telaInter = new TelaInterDificuldade();
             TelaPerdeu telaPerdeu = new TelaPerdeu();
             frame.getContentPane().add(telaQuiz);
@@ -41,28 +46,40 @@ public class BioMonsters {
             if (!perdeu){
                 acertos = telaQuiz.getAcertos();
                 respondidas = telaQuiz.getRespondidas();
+                frame.getContentPane().removeAll();
                 frame.getContentPane().add(telaInter);
                 telaInter.setVisible(true);
-                telaQuiz.setVisible(false);
                 frame.setVisible(true);
-                while(!telaInter.getContinuar()){}
-                frame.getContentPane().remove(telaInter);
+                try {
+                    telaInter.waitInterContinuar();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 dificuldade++;
             }else{
+                frame.getContentPane().removeAll();
                 frame.getContentPane().add(telaPerdeu);
                 telaPerdeu.setVisible(true);
-                telaQuiz.setVisible(false);
                 frame.setVisible(true);
-                while(!telaPerdeu.getTentarDeNovo()){}
-                frame.getContentPane().remove(telaPerdeu);
+                try {
+                    telaPerdeu.waitTryAgain();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-            frame.getContentPane().remove(telaQuiz);
         }
-        
+        frame.getContentPane().removeAll();
         TelaResultados telaResult = new TelaResultados(acertos,respondidas);
         frame.getContentPane().add(telaResult);
         telaResult.setVisible(true);
         frame.setVisible(true);
-        
+        try {
+            telaResult.waitResultados();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        frame.dispose();
+        new TelaPrincipal().setVisible(true);
     }
 }

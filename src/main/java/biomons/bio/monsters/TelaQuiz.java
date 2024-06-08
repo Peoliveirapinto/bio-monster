@@ -18,8 +18,8 @@ public class TelaQuiz extends javax.swing.JPanel {
     private int vidaInimigo;
     private int acertos;
     private int respondidas;
-    private boolean acabou = false;
     private boolean perdeu = false;
+    private boolean acabou = false;
     private boolean resp1Certa;
     private boolean resp2Certa;
     private boolean resp3Certa;
@@ -29,7 +29,7 @@ public class TelaQuiz extends javax.swing.JPanel {
     private List<Resposta> respostas = new ArrayList<Resposta>();
     
     //adiciona as perguntas de uma dificuldade do banco de dados para uma lista randomizada
-    public void addPerguntas (int dificuldade){
+    public void addPerguntas (int dificuldade, int codeSala){
         /*int k = //count de perguntas na dificuldade escolhida
         for (int i=1; i=<k; i++){
             //perguntas.add(pergunta com nivelDificulade=dificulade);
@@ -108,19 +108,18 @@ public class TelaQuiz extends javax.swing.JPanel {
     public void setRespondidas(int respondidas){
         this.respondidas= respondidas;
     }
-    
-    public boolean getAcabou(){
-        return acabou;
-    }
     public boolean getPerdeu(){
         return perdeu;
     }
+    public boolean getAcabou(){
+        return acabou;
+    }
     
     //configuração inicial de uma dificuldade
-    public void initDificuldade(int dificuldade, int acertos, int respondidas){
+    public void initDificuldade(int dificuldade, int acertos, int respondidas, int codeSala){
         setAcertos(acertos);
         setRespondidas(respondidas);
-        addPerguntas(dificuldade);
+        addPerguntas(dificuldade,codeSala);
         initPergunta();
         int numPerguntas = perguntas.size();
         vidaJogador = (numPerguntas)/2;
@@ -193,10 +192,9 @@ public class TelaQuiz extends javax.swing.JPanel {
     /**
      * Creates new form panelTest
      */
-    public TelaQuiz(int dificuldade,int acertos, int respondidas) {
+    public TelaQuiz(int dificuldade,int acertos, int respondidas, int codeSala) {
         initComponents();
-        
-        initDificuldade(dificuldade, acertos, respondidas);
+        initDificuldade(dificuldade, acertos, respondidas,codeSala);
     }
 
     /**
@@ -258,36 +256,37 @@ public class TelaQuiz extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(resposta3)
                             .addComponent(resposta1))
-                        .addGap(36, 36, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(resposta2)
                             .addComponent(resposta4))
-                        .addGap(43, 43, 43)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(vidaJogadorBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(vidaJogadorBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(vidaInimigoBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(vidaJogadorBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(vidaInimigoBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(vidaInimigoBarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(vidaJogadorBarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(resposta1)
                             .addComponent(resposta2))
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(resposta3)
-                            .addComponent(resposta4))))
+                            .addComponent(resposta4)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39))
         );
     }// </editor-fold>//GEN-END:initComponents
