@@ -19,9 +19,6 @@ public class TelaInserirSala extends javax.swing.JPanel {
         return codeSala;
     }
     
-    public void setSalaListener(SalaListener listener){
-        this.listener = listener;
-    }
     public void waitSala() throws InterruptedException {
         semaphore.acquire();
     }

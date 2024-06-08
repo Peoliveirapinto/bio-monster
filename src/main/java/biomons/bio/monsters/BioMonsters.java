@@ -4,6 +4,8 @@
 
 package biomons.bio.monsters;
 
+import TeladeLogin.TelaPrincipal;
+
 /**
  *
  * @author pedro
@@ -13,11 +15,8 @@ public class BioMonsters {
     
     public static void main(String[] args) {
         GameFrame frame = new GameFrame();
-        //chama tela inicial
-        
         frame.setSize(720,480);
-        
-        
+
         TelaInserirSala telaSala = new TelaInserirSala();
         frame.getContentPane().add(telaSala);
         telaSala.setVisible(true);
@@ -29,6 +28,7 @@ public class BioMonsters {
         }
         int codeSala = telaSala.getCodeSala();
         //se o code sala não estiver na tabela codeSala = 1;
+        
         int acertos=0;
         int respondidas=0;
         int dificuldade = 1;
@@ -74,6 +74,12 @@ public class BioMonsters {
         frame.getContentPane().add(telaResult);
         telaResult.setVisible(true);
         frame.setVisible(true);
-        
+        try {
+            telaResult.waitResultados();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        frame.dispose();
+        new TelaPrincipal().setVisible(true);
     }
 }
