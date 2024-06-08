@@ -22,9 +22,6 @@ public class BioMonsters {
         frame.getContentPane().add(telaSala);
         telaSala.setVisible(true);
         frame.setVisible(true);
-        telaSala.setSalaListener(new SalaListener(){
-            public void onSalaClick(){}
-        });
         try {
             telaSala.waitSala();
         } catch (InterruptedException e) {
@@ -38,7 +35,7 @@ public class BioMonsters {
         
         while (dificuldade <= 4){
             frame.getContentPane().removeAll();
-            TelaQuiz telaQuiz = new TelaQuiz(dificuldade,acertos,respondidas);
+            TelaQuiz telaQuiz = new TelaQuiz(dificuldade,acertos,respondidas,codeSala);
             TelaInterDificuldade telaInter = new TelaInterDificuldade();
             TelaPerdeu telaPerdeu = new TelaPerdeu();
             frame.getContentPane().add(telaQuiz);
@@ -53,9 +50,6 @@ public class BioMonsters {
                 frame.getContentPane().add(telaInter);
                 telaInter.setVisible(true);
                 frame.setVisible(true);
-                telaInter.setInterContinuarListener(new InterContinuarListener(){
-                    public void onInterContinuarClick(){}
-                });
                 try {
                     telaInter.waitInterContinuar();
                 } catch (InterruptedException e) {

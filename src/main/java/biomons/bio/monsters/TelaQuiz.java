@@ -29,7 +29,7 @@ public class TelaQuiz extends javax.swing.JPanel {
     private List<Resposta> respostas = new ArrayList<Resposta>();
     
     //adiciona as perguntas de uma dificuldade do banco de dados para uma lista randomizada
-    public void addPerguntas (int dificuldade){
+    public void addPerguntas (int dificuldade, int codeSala){
         /*int k = //count de perguntas na dificuldade escolhida
         for (int i=1; i=<k; i++){
             //perguntas.add(pergunta com nivelDificulade=dificulade);
@@ -116,10 +116,10 @@ public class TelaQuiz extends javax.swing.JPanel {
     }
     
     //configuração inicial de uma dificuldade
-    public void initDificuldade(int dificuldade, int acertos, int respondidas){
+    public void initDificuldade(int dificuldade, int acertos, int respondidas, int codeSala){
         setAcertos(acertos);
         setRespondidas(respondidas);
-        addPerguntas(dificuldade);
+        addPerguntas(dificuldade,codeSala);
         initPergunta();
         int numPerguntas = perguntas.size();
         vidaJogador = (numPerguntas)/2;
@@ -192,9 +192,9 @@ public class TelaQuiz extends javax.swing.JPanel {
     /**
      * Creates new form panelTest
      */
-    public TelaQuiz(int dificuldade,int acertos, int respondidas) {
+    public TelaQuiz(int dificuldade,int acertos, int respondidas, int codeSala) {
         initComponents();
-        initDificuldade(dificuldade, acertos, respondidas);
+        initDificuldade(dificuldade, acertos, respondidas,codeSala);
     }
 
     /**

@@ -15,10 +15,6 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
     private InterContinuarListener listener;
     private final Semaphore semaphore = new Semaphore(0);
     
-    public void setInterContinuarListener(InterContinuarListener listener) {
-        this.listener = listener;
-    }
-    
     public void waitInterContinuar() throws InterruptedException {
         semaphore.acquire();
     }

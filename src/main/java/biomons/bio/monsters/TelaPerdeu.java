@@ -14,9 +14,6 @@ public class TelaPerdeu extends javax.swing.JPanel {
     private final Semaphore semaphore = new Semaphore(0);
     private PerdeuListener listener;
     
-    public void setPedeuListener(PerdeuListener listener) {
-        this.listener = listener;
-    }
     public void waitTryAgain() throws InterruptedException {
         semaphore.acquire();
     }
