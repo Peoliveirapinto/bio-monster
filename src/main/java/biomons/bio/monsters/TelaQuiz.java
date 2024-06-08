@@ -14,7 +14,7 @@ public class TelaQuiz extends javax.swing.JFrame {
     private ArrayList<Resposta> respostas;
     public String respostaAleatoria(List<Resposta> respostas){
         
-        return 
+        return ""; 
     }
 
     /**
@@ -58,7 +58,6 @@ public class TelaQuiz extends javax.swing.JFrame {
             }
         });
 
-        resposta1.setText(random.choice(espostas));
         resposta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resposta1ActionPerformed(evt);

@@ -90,11 +90,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="resposta1">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="random.choice(espostas)" type="code"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resposta1ActionPerformed"/>
       </Events>
