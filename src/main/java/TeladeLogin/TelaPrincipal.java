@@ -4,9 +4,11 @@
  */
 package TeladeLogin;
 
+import javax.swing.JFrame;
+
 /**
  *
- * @author 24.00393-0
+ * @author Note
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -15,7 +17,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
-        setLocationRelativeTo(null);
     }
 
     /**
@@ -27,32 +28,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Tela Inicial");
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(1280, 720));
-        setMinimumSize(new java.awt.Dimension(1280, 720));
-        setResizable(false);
-        setSize(new java.awt.Dimension(1280, 720));
-        getContentPane().setLayout(null);
-
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Note\\Downloads\\bio-monster-painel\\bio-monster-painel\\src\\main\\java\\TeladeLogin\\LoginProfessor.jpeg")); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(40, 10, 210, 20);
+        getContentPane().setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Note\\Downloads\\bio-monster-painel\\bio-monster-painel\\src\\main\\java\\TeladeLogin\\BotaoDeInicio.jpeg")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Note\\OneDrive\\Área de Trabalho\\ProjI\\BotaoIniciar.png")); // NOI18N
+        jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,11 +49,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(50, 360, 170, 30);
+        jButton1.setBounds(70, 560, 200, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TeladeLogin/TelaInicialBiomonters.jpeg"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 540, 470);
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Note\\OneDrive\\Área de Trabalho\\ProjI\\BotaoLoginProfessor.png")); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(350, 550, 390, 60);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Note\\OneDrive\\Área de Trabalho\\ProjI\\TelaPrincipalHD.png")); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(1, 0, 1360, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -74,9 +74,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.dispose();
-        new TelaLoginProfessor().setVisible(true);
+       this.dispose();
+       new TelaProfessor().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // Maximizar o JFrame na inicialização
+    this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+    }//GEN-LAST:event_formComponentShown
 
     /**
      * @param args the command line arguments
@@ -104,7 +109,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -117,6 +121,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
