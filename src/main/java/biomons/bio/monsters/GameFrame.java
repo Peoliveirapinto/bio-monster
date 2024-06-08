@@ -27,7 +27,7 @@ public class GameFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.FlowLayout());
+        getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -62,7 +62,6 @@ public class GameFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GameFrame().setVisible(true);
             }
         });
     }

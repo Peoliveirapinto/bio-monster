@@ -4,6 +4,9 @@
  */
 package biomons.bio.monsters;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author pedro
@@ -18,13 +21,14 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
     public boolean getIndex(){
         return index;
     }
+    
     /**
      * Creates new form TelaInterDificuldade
      */
     public TelaInterDificuldade() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,13 +88,11 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void continuarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarButtonActionPerformed
-        // TODO add your handling code here:
-        continuar = true;
+
     }//GEN-LAST:event_continuarButtonActionPerformed
 
     private void indexBioMonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indexBioMonsActionPerformed
-        // TODO add your handling code here:
-        index = true;
+
     }//GEN-LAST:event_indexBioMonsActionPerformed
 
 
