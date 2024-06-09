@@ -69,7 +69,11 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+<<<<<<< Updated upstream
           <Image iconType="2" name="C:\Users\Note\OneDrive\&#xc1;rea de Trabalho\ProjI\TelaPrincipalHD.png"/>
+=======
+          <Image iconType="2" name="C:\Users\Note\OneDrive\&#xc1;rea de Trabalho\P.i\TelaPrincipalHD.png"/>
+>>>>>>> Stashed changes
         </Property>
       </Properties>
       <Constraints>

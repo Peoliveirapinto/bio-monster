@@ -62,7 +62,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(350, 550, 390, 60);
 
+<<<<<<< Updated upstream
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Note\\OneDrive\\Área de Trabalho\\ProjI\\TelaPrincipalHD.png")); // NOI18N
+=======
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Note\\OneDrive\\Área de Trabalho\\P.i\\TelaPrincipalHD.png")); // NOI18N
+>>>>>>> Stashed changes
         getContentPane().add(jLabel1);
         jLabel1.setBounds(1, 0, 1360, 720);
 
