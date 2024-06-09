@@ -63,16 +63,24 @@ public class IndexInimigos extends javax.swing.JFrame {
         proxButtom = new javax.swing.JButton();
         antButton = new javax.swing.JButton();
         sairButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         nomeArea.setColumns(20);
         nomeArea.setRows(5);
         jScrollPane1.setViewportView(nomeArea);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(6, 14, 176, 49);
+
         descArea.setColumns(20);
         descArea.setRows(5);
         jScrollPane2.setViewportView(descArea);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(6, 75, 176, 180);
 
         proxButtom.setText("Próximo");
         proxButtom.addActionListener(new java.awt.event.ActionListener() {
@@ -80,6 +88,8 @@ public class IndexInimigos extends javax.swing.JFrame {
                 proxButtomActionPerformed(evt);
             }
         });
+        getContentPane().add(proxButtom);
+        proxButtom.setBounds(319, 232, 74, 23);
 
         antButton.setText("Anterior");
         antButton.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +97,8 @@ public class IndexInimigos extends javax.swing.JFrame {
                 antButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(antButton);
+        antButton.setBounds(234, 232, 73, 23);
 
         sairButton.setText("Sair");
         sairButton.addActionListener(new java.awt.event.ActionListener() {
@@ -94,42 +106,10 @@ public class IndexInimigos extends javax.swing.JFrame {
                 sairButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(antButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(proxButtom))
-                    .addComponent(sairButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(sairButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(proxButtom)
-                            .addComponent(antButton)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        getContentPane().add(sairButton);
+        sairButton.setBounds(321, 14, 72, 23);
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 400, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -189,6 +169,7 @@ public class IndexInimigos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton antButton;
     private javax.swing.JTextArea descArea;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea nomeArea;
