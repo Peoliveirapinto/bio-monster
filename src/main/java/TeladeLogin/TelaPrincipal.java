@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package TeladeLogin;
-
+import java.util.concurrent.Semaphore;
 import javax.swing.JFrame;
 
 /**
@@ -11,7 +11,12 @@ import javax.swing.JFrame;
  * @author Note
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-
+    private final Semaphore semaphore = new Semaphore(0);
+    private PrincipalListener listener;
+    
+    public void waitIniciar() throws InterruptedException {
+        semaphore.acquire();
+    }
     /**
      * Creates new form TelaPrincipal
      */
@@ -70,7 +75,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        this.dispose();
+        if (listener != null) {
+            listener.onIniciar();
+        }
+        semaphore.release();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
