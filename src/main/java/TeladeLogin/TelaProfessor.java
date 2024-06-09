@@ -40,7 +40,7 @@ public class TelaProfessor extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Note\\OneDrive\\Área de Trabalho\\ProjI\\BotaoVoltar.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TeladeLogin/BotaoVoltar.png"))); // NOI18N
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -51,7 +51,7 @@ public class TelaProfessor extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(60, 540, 320, 60);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Note\\OneDrive\\Área de Trabalho\\ProjI\\Painelprofessor.jpeg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TeladeLogin/Painelprofessor.jpeg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(1, 0, 1360, 720);
 
