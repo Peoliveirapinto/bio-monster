@@ -64,7 +64,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\TelaPrincipalHD.png"));
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(1, 0, 0, 0);
+        jLabel1.setBounds(1, 0, 1360, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
