@@ -36,7 +36,7 @@ public class BioMonsters {
         while (dificuldade <= 4){
             frame.getContentPane().removeAll();
             TelaQuiz telaQuiz = new TelaQuiz(dificuldade,acertos,respondidas,codeSala);
-            TelaInterDificuldade telaInter = new TelaInterDificuldade();
+            TelaInterDificuldade telaInter = new TelaInterDificuldade(codeSala,dificuldade);
             TelaPerdeu telaPerdeu = new TelaPerdeu();
             frame.getContentPane().add(telaQuiz);
             telaQuiz.setVisible(true);
