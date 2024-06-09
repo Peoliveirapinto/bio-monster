@@ -14,6 +14,15 @@ public class BioMonsters {
 
     
     public static void main(String[] args) {
+        while(true){
+        TelaPrincipal telaPrincipal = new TelaPrincipal();
+        telaPrincipal.setVisible(true);
+        try {
+            telaPrincipal.waitIniciar();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
         GameFrame frame = new GameFrame();
         frame.setSize(720,480);
 
@@ -80,6 +89,6 @@ public class BioMonsters {
             e.printStackTrace();
         }
         frame.dispose();
-        new TelaPrincipal().setVisible(true);
+        }
     }
 }
