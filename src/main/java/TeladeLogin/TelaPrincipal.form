@@ -31,7 +31,7 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Note\OneDrive\&#xc1;rea de Trabalho\ProjI\BotaoIniciar.png"/>
+          <Image iconType="3" name="/TeladeLogin/BotaoIniciar.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -50,7 +50,7 @@
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Note\OneDrive\&#xc1;rea de Trabalho\ProjI\BotaoLoginProfessor.png"/>
+          <Image iconType="3" name="/TeladeLogin/BotaoLoginProfessor.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
