@@ -53,7 +53,7 @@ public class TelaProfessor extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Note\\OneDrive\\Área de Trabalho\\ProjI\\Painelprofessor.jpeg")); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(1, 0, 1360, 711);
+        jLabel1.setBounds(1, 0, 1360, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
