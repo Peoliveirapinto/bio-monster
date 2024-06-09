@@ -40,7 +40,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TeladeLogin/BotaoIniciar.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\BotaoIniciar.png"));
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -51,7 +51,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(70, 560, 200, 40);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TeladeLogin/BotaoLoginProfessor.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\BotaoLoginProfessor.png"));
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -62,9 +62,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(350, 550, 390, 60);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TeladeLogin/TelaPrincipalHD.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\TelaPrincipalHD.png"));
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(1, 0, 1360, 720);
+        jLabel1.setBounds(1, 0, 0, 0);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
