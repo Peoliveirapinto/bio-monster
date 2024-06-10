@@ -71,7 +71,7 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;) +&quot;\\src\\main\\java\\TeladeLogin\\/PROXIMO_img.png&quot;))" type="code"/>
+          <Connection code="new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;) +&quot;\\src\\main\\java\\TeladeLogin\\/PROXIMO_img.png&quot;)" type="code"/>
         </Property>
       </Properties>
       <Events>
@@ -89,7 +89,7 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;) +&quot;\\src\\main\\java\\TeladeLogin\\/ANTERIOR_img.png&quot;))" type="code"/>
+          <Connection code="new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;) +&quot;\\src\\main\\java\\TeladeLogin\\/ANTERIOR_img.png&quot;)" type="code"/>
         </Property>
       </Properties>
       <Events>
@@ -127,7 +127,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="50" y="0" width="1280" height="720"/>
+          <AbsoluteConstraints x="20" y="10" width="1280" height="720"/>
         </Constraint>
       </Constraints>
     </Component>
