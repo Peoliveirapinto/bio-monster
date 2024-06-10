@@ -39,6 +39,16 @@ public class IndexInimigos extends javax.swing.JFrame {
     public void setDificuldade(int dificuldade) {
         this.dificuldade = dificuldade;
     }
+    public String imagemInimigo(){
+        String animal = "arquivo inimigo";
+        switch (inimigoNum +1){
+            case 1 -> animal = "tucano.png";
+            case 2 -> animal = "mico.png";
+            case 3 -> animal ="arara.png";
+            case 4 -> animal ="loboGuara.png";
+        }
+        return animal;
+    }
 
     /**
      * Creates new form IndexInimigos
@@ -66,19 +76,26 @@ public class IndexInimigos extends javax.swing.JFrame {
         proxButtom = new javax.swing.JButton();
         antButton = new javax.swing.JButton();
         sairButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(256, 144));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(null);
 
+        nomeArea.setEditable(false);
         nomeArea.setColumns(20);
+        nomeArea.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         nomeArea.setRows(5);
         jScrollPane1.setViewportView(nomeArea);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(410, 40, 370, 90);
 
+        descArea.setEditable(false);
         descArea.setColumns(20);
+        descArea.setLineWrap(true);
         descArea.setRows(5);
         jScrollPane2.setViewportView(descArea);
 
@@ -116,14 +133,18 @@ public class IndexInimigos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(sairButton);
-        sairButton.setBounds(920, 220, 230, 60);
+        sairButton.setBounds(1030, 10, 230, 60);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\/Painelprofessor.jpeg"));
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1280, 720);
+        jLabel2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\" + imagemInimigo()));
+            getContentPane().add(jLabel2);
+            jLabel2.setBounds(860, 120, 370, 340);
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+            jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\/Painelprofessor.jpeg"));
+            getContentPane().add(jLabel1);
+            jLabel1.setBounds(0, 0, 1280, 720);
+
+            pack();
+        }// </editor-fold>//GEN-END:initComponents
 
     private void antButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_antButtonActionPerformed
         if (inimigoNum > 0) {
@@ -181,6 +202,7 @@ public class IndexInimigos extends javax.swing.JFrame {
     private javax.swing.JButton antButton;
     private javax.swing.JTextArea descArea;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea nomeArea;

@@ -43,7 +43,9 @@ public class TelaResultados extends javax.swing.JPanel {
         sairButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        textArea.setEditable(false);
         textArea.setColumns(20);
+        textArea.setLineWrap(true);
         textArea.setRows(5);
         jScrollPane1.setViewportView(textArea);
 
