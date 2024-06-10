@@ -30,6 +30,18 @@ public class TelaQuiz extends javax.swing.JPanel {
     private boolean perguntaRespondida = false;
     private List<Pergunta> perguntas = new ArrayList<Pergunta>();
     private List<Resposta> respostas = new ArrayList<Resposta>();
+    private int dificuldade;
+    
+    public String imagemInimigo(){
+        String animal = "arquivo inimigo";
+        switch (dificuldade){
+            case 1 -> animal = "tucano.png";
+            case 2 -> animal = "mico.png";
+            case 3 -> animal ="arara.png";
+            case 4 -> animal ="loboGuara.png";
+        }
+        return animal;
+    }
 
     //adiciona as perguntas de uma dificuldade do banco de dados para uma lista randomizada
     public void addPerguntas(int dificuldade, int codeSala) {
@@ -209,6 +221,7 @@ public class TelaQuiz extends javax.swing.JPanel {
      * Creates new form panelTest
      */
     public TelaQuiz(int dificuldade, int acertos, int respondidas, int codeSala) {
+        this.dificuldade = dificuldade;
         initComponents();
         initDificuldade(dificuldade, acertos, respondidas, codeSala);
     }
@@ -230,83 +243,84 @@ public class TelaQuiz extends javax.swing.JPanel {
         resposta2 = new javax.swing.JButton();
         resposta3 = new javax.swing.JButton();
         resposta4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        setMinimumSize(new java.awt.Dimension(128, 72));
+        setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setLayout(null);
 
         resposta1.setText("jButton1");
+        resposta1.setPreferredSize(new java.awt.Dimension(400, 80));
         resposta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resposta1ActionPerformed(evt);
             }
         });
+        add(resposta1);
+        resposta1.setBounds(0, 490, 400, 80);
+
+        vidaJogadorBarra.setForeground(new java.awt.Color(0, 255, 0));
+        vidaJogadorBarra.setPreferredSize(new java.awt.Dimension(400, 20));
+        add(vidaJogadorBarra);
+        vidaJogadorBarra.setBounds(6, 6, 400, 20);
+
+        vidaInimigoBarra.setForeground(new java.awt.Color(0, 255, 0));
+        vidaInimigoBarra.setPreferredSize(new java.awt.Dimension(400, 20));
+        add(vidaInimigoBarra);
+        vidaInimigoBarra.setBounds(870, 10, 400, 20);
 
         areaPerg.setEditable(false);
+        areaPerg.setPreferredSize(new java.awt.Dimension(400, 200));
         jScrollPane1.setViewportView(areaPerg);
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(830, 490, 440, 220);
+
         resposta2.setText("jButton2");
+        resposta2.setPreferredSize(new java.awt.Dimension(400, 80));
         resposta2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resposta2ActionPerformed(evt);
             }
         });
+        add(resposta2);
+        resposta2.setBounds(420, 490, 400, 80);
 
         resposta3.setText("jButton3");
+        resposta3.setPreferredSize(new java.awt.Dimension(400, 80));
         resposta3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resposta3ActionPerformed(evt);
             }
         });
+        add(resposta3);
+        resposta3.setBounds(0, 630, 400, 80);
 
         resposta4.setText("jButton4");
+        resposta4.setPreferredSize(new java.awt.Dimension(400, 80));
         resposta4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resposta4ActionPerformed(evt);
             }
         });
+        add(resposta4);
+        resposta4.setBounds(420, 630, 400, 80);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(resposta3)
-                            .addComponent(resposta1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(resposta2)
-                            .addComponent(resposta4))
-                        .addGap(43, 43, 43))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(vidaJogadorBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vidaInimigoBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(vidaInimigoBarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(vidaJogadorBarra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(resposta1)
-                            .addComponent(resposta2))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(resposta3)
-                            .addComponent(resposta4)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39))
-        );
-    }// </editor-fold>//GEN-END:initComponents
+        jLabel2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\onça.png"));
+        add(jLabel2);
+        jLabel2.setBounds(20, 150, 460, 330);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\" + imagemInimigo()));
+            add(jLabel3);
+            jLabel3.setBounds(750, 120, 400, 330);
+
+            jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\BATALHA_CENA_1280X720.png"));
+            add(jLabel1);
+            jLabel1.setBounds(0, 0, 1280, 720);
+        }// </editor-fold>//GEN-END:initComponents
 
     private void resposta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta1ActionPerformed
         respondido(0);
@@ -327,6 +341,9 @@ public class TelaQuiz extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextPane areaPerg;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton resposta1;
     private javax.swing.JButton resposta2;
