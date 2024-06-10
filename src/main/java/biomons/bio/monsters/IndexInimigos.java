@@ -111,6 +111,8 @@ public class IndexInimigos extends javax.swing.JFrame {
         });
         getContentPane().add(sairButton);
         sairButton.setBounds(321, 14, 72, 23);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\INDEX_INIMIGOS_BACKGROUND.png"));
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 400, 300);
 
