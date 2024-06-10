@@ -7,154 +7,163 @@ package biomons.bio.monsters;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.Semaphore;
 
 /**
  *
  * @author pedro
  */
 public class TelaQuiz extends javax.swing.JPanel {
-    private int indexPergunta =1;
+
+    private int indexPergunta = 0;
     private int vidaJogador;
     private int vidaInimigo;
     private int acertos;
     private int respondidas;
     private boolean perdeu = false;
-    private boolean acabou = false;
     private boolean resp1Certa;
     private boolean resp2Certa;
     private boolean resp3Certa;
     private boolean resp4Certa;
+    private final Semaphore semaphore = new Semaphore(0);
+    private QuizListener listener;
     private boolean perguntaRespondida = false;
     private List<Pergunta> perguntas = new ArrayList<Pergunta>();
     private List<Resposta> respostas = new ArrayList<Resposta>();
-    
+
     //adiciona as perguntas de uma dificuldade do banco de dados para uma lista randomizada
-    public void addPerguntas (int dificuldade, int codeSala){
-        /*int k = //count de perguntas na dificuldade escolhida
-        for (int i=1; i=<k; i++){
-            //perguntas.add(pergunta com nivelDificulade=dificulade);
-        }*/
-        //teste
-        Pergunta pergunta1 = new Pergunta(1,"pergunta 1", 1);
-        Pergunta pergunta2 = new Pergunta(1,"pergunta 2", 2);
-        perguntas.add(pergunta1);
-        perguntas.add(pergunta2);
-        
+    public void addPerguntas(int dificuldade, int codeSala) {
+
+        int k = 0;
+        try {
+            DAO dao = new DAO();
+            k = dao.countPerguntas(dificuldade, codeSala);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        for (int i = 1; i <= k; i++) {
+            try {
+                DAO dao = new DAO();
+                perguntas.add(dao.addPergunta(dificuldade, codeSala, i));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         perguntas = randPerguntas(perguntas);
-    } 
-    
+    }
+
     //adiciona as respostas de uma pergunta do banco de dados para uma lista randomizada
-    public void addRespostas(int idPergunta){
+    public void addRespostas(int idPergunta) {
         respostas = new ArrayList<Resposta>();
-        /*for (int i=1; i=<4; i++){
-//            respostas.add(resposta com idPergunta=idPergunta e idResposta diferente do anterior)
-        }*/
-        //teste
-        Resposta resp1 = new Resposta(true,"correta",1);
-        RespostaErrada resp2 = new RespostaErrada("errada1",1,"correct");
-        RespostaErrada resp3 = new RespostaErrada("errada2",1,"correct");
-        RespostaErrada resp4 = new RespostaErrada("errada3",1,"correct");
-        respostas.add(resp1);
-        respostas.add(resp2);
-        respostas.add(resp3);
-        respostas.add(resp4);
-        
+        for (int i = 1; i <= 4; i++) {
+            try {
+                DAO dao = new DAO();
+                respostas.add(dao.addResposta(idPergunta, i));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         respostas = randRespostas(respostas);
     }
-        
+
     //randomiza uma lista de perguntas
-    public List<Pergunta> randPerguntas(List<Pergunta> perguntas){
+    public List<Pergunta> randPerguntas(List<Pergunta> perguntas) {
         int numPerguntas = perguntas.size();
         Random rand = new Random();
         List<Pergunta> newPerguntas = new ArrayList<>();
         List<Integer> contagem = new ArrayList<>();
-        for (int i =0; i<numPerguntas ; i++){
+        for (int i = 0; i < numPerguntas; i++) {
             contagem.add(i);
         }
-        while(newPerguntas.size()<numPerguntas){
+        while (newPerguntas.size() < numPerguntas) {
             int index = rand.nextInt(contagem.size());
             newPerguntas.add(perguntas.get(index));
             contagem.remove(index);
         }
         return newPerguntas;
     }
-    
+
     //randomiza uma lista de respostas
-    public List<Resposta> randRespostas(List<Resposta> respostas){
+    public List<Resposta> randRespostas(List<Resposta> respostas) {
         Random rand = new Random();
         List<Resposta> newRespostas = new ArrayList<>();
         List<Integer> contagem = new ArrayList<>();
-        for (int i =0; i<= 3; i++){
+        for (int i = 0; i <= 3; i++) {
             contagem.add(i);
         }
-        while(newRespostas.size()<4){
+        while (newRespostas.size() < 4) {
             int index = rand.nextInt(contagem.size());
             newRespostas.add(respostas.get(contagem.get(index)));
             contagem.remove(index);
         }
         return newRespostas;
     }
-    
-    public int getAcertos(){
+
+    public void waitQuiz() throws InterruptedException {
+        semaphore.acquire();
+    }
+
+    public int getAcertos() {
         return acertos;
     }
-    public void setAcertos(int acertos){
-        this.acertos= acertos;
+
+    public void setAcertos(int acertos) {
+        this.acertos = acertos;
     }
-    
-    public int getRespondidas(){
+
+    public int getRespondidas() {
         return respondidas;
     }
-    public void setRespondidas(int respondidas){
-        this.respondidas= respondidas;
+
+    public void setRespondidas(int respondidas) {
+        this.respondidas = respondidas;
     }
-    public boolean getPerdeu(){
+
+    public boolean getPerdeu() {
         return perdeu;
     }
-    public boolean getAcabou(){
-        return acabou;
-    }
-    
+
     //configuração inicial de uma dificuldade
-    public void initDificuldade(int dificuldade, int acertos, int respondidas, int codeSala){
+    public void initDificuldade(int dificuldade, int acertos, int respondidas, int codeSala) {
         setAcertos(acertos);
         setRespondidas(respondidas);
-        addPerguntas(dificuldade,codeSala);
+        addPerguntas(dificuldade, codeSala);
         initPergunta();
         int numPerguntas = perguntas.size();
-        vidaJogador = (numPerguntas)/2;
-        vidaInimigo = (numPerguntas)/2;
-        initBarraVida(vidaInimigoBarra,vidaInimigo);
-        initBarraVida(vidaJogadorBarra,vidaJogador);
+        vidaJogador = (numPerguntas) / 2;
+        vidaInimigo = (numPerguntas) / 2;
+        initBarraVida(vidaInimigoBarra, vidaInimigo);
+        initBarraVida(vidaJogadorBarra, vidaJogador);
     }
-    
+
     //configura os valores dos items da tela de uma pergunta 
-    public void initPergunta(){
+    public void initPergunta() {
         addRespostas((perguntas.get(indexPergunta)).getIdPergunta());
         resposta1.setText((respostas.get(0)).getResposta());
         resposta2.setText((respostas.get(1)).getResposta());
         resposta3.setText((respostas.get(2)).getResposta());
         resposta4.setText((respostas.get(3)).getResposta());
-        resp1Certa=(respostas.get(0)).getCerta();
-        resp2Certa=(respostas.get(1)).getCerta();
-        resp3Certa=(respostas.get(2)).getCerta();
-        resp4Certa=(respostas.get(3)).getCerta();
+        resp1Certa = (respostas.get(0)).getCerta();
+        resp2Certa = (respostas.get(1)).getCerta();
+        resp3Certa = (respostas.get(2)).getCerta();
+        resp4Certa = (respostas.get(3)).getCerta();
         areaPerg.setText((perguntas.get(indexPergunta)).getPergunta());
     }
-    
-        
+
     //configura uma barra de vida
-    public void initBarraVida(javax.swing.JProgressBar barraVida, int vida){
+    public void initBarraVida(javax.swing.JProgressBar barraVida, int vida) {
         barraVida.setMaximum(vida);
         barraVida.setMinimum(0);
         barraVida.setValue(vida);
     }
-    
+
     //comportamento de uma resposta
-    public void respondido(int respNum){
-        if (!perguntaRespondida){
+    public void respondido(int respNum) {
+        if (!perguntaRespondida) {
             boolean certa = (respostas.get(respNum)).getCerta();
-            if (certa == true){
+            if (certa == true) {
                 vidaInimigo--;
                 acertos++;
                 vidaInimigoBarra.setValue(vidaInimigo);
@@ -163,26 +172,33 @@ public class TelaQuiz extends javax.swing.JPanel {
                 vidaJogadorBarra.setValue(vidaJogador);
             }
             perguntaRespondidaFunc(certa, respNum);
-        } else if (vidaInimigo<=0){
-            acabou = true;
-        }else if (vidaJogador<=0){
+        } else if (vidaInimigo <= 0) {
+            if (listener != null) {
+                listener.onQuiz();
+            }
+            semaphore.release();
+        } else if (vidaJogador <= 0) {
             perdeu = true;
-            acabou = true;
-        }else{
+            if (listener != null) {
+                listener.onQuiz();
+            }
+            semaphore.release();
+        } else {
             indexPergunta++;
+            perguntaRespondida = false;
             initPergunta();
         }
     }
-    
-    public void perguntaRespondidaFunc(boolean certa,int respNum){
+
+    public void perguntaRespondidaFunc(boolean certa, int respNum) {
         resposta1.setText("Continuar");
         resposta2.setText("Continuar");
         resposta3.setText("Continuar");
         resposta4.setText("Continuar");
-        if (certa){
+        if (certa) {
             areaPerg.setText("Você acertou!!!");
-        } else{
-            RespostaErrada respErrada = (RespostaErrada) respostas.get(respNum);
+        } else {
+            Resposta respErrada = (Resposta) respostas.get(respNum);
             areaPerg.setText("Correção: " + (respErrada).getCorrect());
         }
         perguntaRespondida = true;
@@ -192,9 +208,9 @@ public class TelaQuiz extends javax.swing.JPanel {
     /**
      * Creates new form panelTest
      */
-    public TelaQuiz(int dificuldade,int acertos, int respondidas, int codeSala) {
+    public TelaQuiz(int dificuldade, int acertos, int respondidas, int codeSala) {
         initComponents();
-        initDificuldade(dificuldade, acertos, respondidas,codeSala);
+        initDificuldade(dificuldade, acertos, respondidas, codeSala);
     }
 
     /**
@@ -222,6 +238,7 @@ public class TelaQuiz extends javax.swing.JPanel {
             }
         });
 
+        areaPerg.setEditable(false);
         jScrollPane1.setViewportView(areaPerg);
 
         resposta2.setText("jButton2");
@@ -306,7 +323,6 @@ public class TelaQuiz extends javax.swing.JPanel {
     private void resposta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta4ActionPerformed
         respondido(3);
     }//GEN-LAST:event_resposta4ActionPerformed
-                       
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
