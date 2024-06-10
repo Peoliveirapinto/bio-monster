@@ -106,7 +106,7 @@ public class IndexInimigos extends javax.swing.JFrame {
     antButton.setBounds(210, 520, 290, 70);
 
     sairButton.setBackground(new java.awt.Color(0, 0, 0));
-    sairButton.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\/SAIR_IMG.png")));
+    sairButton.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\/SAIR_IMG.png"));
     sairButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             sairButtonActionPerformed(evt);
