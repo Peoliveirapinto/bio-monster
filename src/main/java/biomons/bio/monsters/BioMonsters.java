@@ -22,7 +22,7 @@ public class BioMonsters {
             }
 
             GameFrame frame = new GameFrame();
-            frame.setSize(720, 480);
+            frame.setSize(1280, 720);
 
             TelaInserirSala telaSala = new TelaInserirSala();
             frame.getContentPane().add(telaSala);
