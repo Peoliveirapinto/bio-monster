@@ -76,47 +76,50 @@ public class IndexInimigos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(nomeArea);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(6, 14, 176, 49);
+        jScrollPane1.setBounds(240, 60, 390, 90);
 
         descArea.setColumns(20);
         descArea.setRows(5);
         jScrollPane2.setViewportView(descArea);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(6, 75, 176, 180);
+        jScrollPane2.setBounds(240, 190, 330, 180);
 
-        proxButtom.setText("Próximo");
-        proxButtom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                proxButtomActionPerformed(evt);
-            }
-        });
-        getContentPane().add(proxButtom);
-        proxButtom.setBounds(319, 232, 74, 23);
+        proxButtom.setBackground(new java.awt.Color(0, 0, 0));
+        proxButtom.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\/PROXIMO_img.png")));
+    proxButtom.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            proxButtomActionPerformed(evt);
+        }
+    });
+    getContentPane().add(proxButtom);
+    proxButtom.setBounds(690, 520, 260, 70);
 
-        antButton.setText("Anterior");
-        antButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                antButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(antButton);
-        antButton.setBounds(234, 232, 73, 23);
+    antButton.setBackground(new java.awt.Color(0, 0, 0));
+    antButton.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\/ANTERIOR_img.png")));
+    antButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            antButtonActionPerformed(evt);
+        }
+    });
+    getContentPane().add(antButton);
+    antButton.setBounds(210, 520, 290, 70);
 
-        sairButton.setText("Sair");
-        sairButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sairButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(sairButton);
-        sairButton.setBounds(321, 14, 72, 23);
+    sairButton.setBackground(new java.awt.Color(0, 0, 0));
+    sairButton.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\/SAIR_IMG.png")));
+    sairButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            sairButtonActionPerformed(evt);
+        }
+    });
+    getContentPane().add(sairButton);
+    sairButton.setBounds(720, 280, 210, 90);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\INDEX_INIMIGOS_BACKGROUND.png"));
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 400, 300);
+    jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\INDEX_INIMIGOS_BACKGROUND.png"));
+    getContentPane().add(jLabel1);
+    jLabel1.setBounds(50, 0, 1280, 720);
 
-        pack();
+    pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void antButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_antButtonActionPerformed
