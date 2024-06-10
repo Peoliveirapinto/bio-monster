@@ -76,43 +76,51 @@ public class IndexInimigos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(nomeArea);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(6, 14, 176, 49);
+        jScrollPane1.setBounds(410, 40, 370, 90);
 
         descArea.setColumns(20);
         descArea.setRows(5);
         jScrollPane2.setViewportView(descArea);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(6, 75, 176, 180);
+        jScrollPane2.setBounds(410, 200, 370, 180);
 
-        proxButtom.setText("Próximo");
+        proxButtom.setBackground(new java.awt.Color(0, 0, 0));
+        proxButtom.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\/PROXIMO_img.png"));
+        proxButtom.setBorderPainted(false);
         proxButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proxButtomActionPerformed(evt);
             }
         });
         getContentPane().add(proxButtom);
-        proxButtom.setBounds(319, 232, 74, 23);
+        proxButtom.setBounds(920, 480, 230, 60);
 
-        antButton.setText("Anterior");
+        antButton.setBackground(new java.awt.Color(0, 0, 0));
+        antButton.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\/ANTERIOR_img.png"));
+        antButton.setBorderPainted(false);
         antButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 antButtonActionPerformed(evt);
             }
         });
         getContentPane().add(antButton);
-        antButton.setBounds(234, 232, 73, 23);
+        antButton.setBounds(410, 480, 230, 60);
 
-        sairButton.setText("Sair");
+        sairButton.setBackground(new java.awt.Color(0, 0, 0));
+        sairButton.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\/SAIR_IMG.png"));
+        sairButton.setBorderPainted(false);
         sairButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sairButtonActionPerformed(evt);
             }
         });
         getContentPane().add(sairButton);
-        sairButton.setBounds(321, 14, 72, 23);
+        sairButton.setBounds(920, 220, 230, 60);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\/Painelprofessor.jpeg"));
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 400, 300);
+        jLabel1.setBounds(0, 0, 1280, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
