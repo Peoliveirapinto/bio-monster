@@ -51,49 +51,44 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
         indexBioMons = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         textArea = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
-        continuarButton.setText("Continuar");
-        continuarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                continuarButtonActionPerformed(evt);
-            }
-        });
+        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setLayout(null);
 
-        indexBioMons.setText("Index Bio Monsters");
-        indexBioMons.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                indexBioMonsActionPerformed(evt);
-            }
-        });
+        continuarButton.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\CONTINUAR_IMG.png")));
+    continuarButton.setBorderPainted(false);
+    continuarButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            continuarButtonActionPerformed(evt);
+        }
+    });
+    add(continuarButton);
+    continuarButton.setBounds(429, 277, 192, 24);
 
-        textArea.setColumns(20);
-        textArea.setRows(5);
-        textArea.setText("Nivel Concluído");
-        jScrollPane1.setViewportView(textArea);
+    indexBioMons.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\BIODEX_IMG.png")));
+    indexBioMons.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            indexBioMonsActionPerformed(evt);
+        }
+    });
+    add(indexBioMons);
+    indexBioMons.setBounds(429, 313, 96, 24);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(indexBioMons)
-                    .addComponent(continuarButton))
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(continuarButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(indexBioMons)
-                .addContainerGap(133, Short.MAX_VALUE))
-        );
+    textArea.setEditable(false);
+    textArea.setColumns(20);
+    textArea.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+    textArea.setRows(5);
+    textArea.setText("Nivel Concluído");
+    textArea.setPreferredSize(new java.awt.Dimension(400, 200));
+    jScrollPane1.setViewportView(textArea);
+
+    add(jScrollPane1);
+    jScrollPane1.setBounds(429, 124, 344, 141);
+
+    jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\Painelprofessor.jpeg"));
+    add(jLabel1);
+    jLabel1.setBounds(0, 0, 1270, 750);
     }// </editor-fold>//GEN-END:initComponents
 
     private void continuarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarButtonActionPerformed
@@ -111,6 +106,7 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton continuarButton;
     private javax.swing.JButton indexBioMons;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea textArea;
     // End of variables declaration//GEN-END:variables
