@@ -106,9 +106,34 @@ public class DAO {
             }
             resp.setCorrect(correct);
         }
-            resp.setCerta(certa);
-            resp.setResposta(valorResposta);
-            resp.setIdPergunta(idPergunta);
+        resp.setCerta(certa);
+        resp.setResposta(valorResposta);
+        resp.setIdPergunta(idPergunta);
         return resp;
+    }
+
+    public Inimigo addInimigo(int dificuldade) throws Exception {
+        String addNome = "SELECT nomeInimigo FROM mydb.inimigo WHERE dificuldade_nivelDificuldade = ?";
+        String addDesc = "SELECT infoInimigo FROM mydb.inimigo WHERE dificuldade_nivelDificuldade = ?";
+        String nome = "erro";
+        String desc = "erro";
+        try (Connection conn = Conexao.obterConexao(); PreparedStatement ps = conn.prepareStatement(addNome)) {
+            ps.setInt(1, dificuldade);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    nome = rs.getString(1);
+                }
+            }
+        }
+        try (Connection conn = Conexao.obterConexao(); PreparedStatement ps = conn.prepareStatement(addDesc)) {
+            ps.setInt(1, dificuldade);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    desc = rs.getString(1);
+                }
+            }
+        }
+        Inimigo inimigo = new Inimigo(dificuldade, nome, desc);
+        return inimigo;
     }
 }

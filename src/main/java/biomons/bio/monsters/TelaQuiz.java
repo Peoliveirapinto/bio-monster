@@ -51,7 +51,7 @@ public class TelaQuiz extends javax.swing.JPanel {
             }
         }
 
-        perguntas = randPerguntas(perguntas);
+        // perguntas = randPerguntas(perguntas);
     }
 
     //adiciona as respostas de uma pergunta do banco de dados para uma lista randomizada
