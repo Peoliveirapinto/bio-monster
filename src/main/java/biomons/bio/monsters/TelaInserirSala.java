@@ -42,46 +42,42 @@ public class TelaInserirSala extends javax.swing.JPanel {
         textField = new javax.swing.JTextField();
         começar = new javax.swing.JButton();
         defaultSala = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        textField.setText("Código da sala");
+        setLayout(null);
 
-        começar.setText("começar");
+        textField.setBorder(javax.swing.BorderFactory.createTitledBorder("Código da sala"));
+        add(textField);
+        textField.setBounds(80, 80, 700, 60);
+
+        começar.setBackground(new java.awt.Color(0, 0, 0));
+        começar.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\BotaoIniciar.png"));
         começar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 começarActionPerformed(evt);
             }
         });
+        add(começar);
+        começar.setBounds(70, 230, 280, 70);
 
-        defaultSala.setText("começar sem código da sala");
+        defaultSala.setBackground(new java.awt.Color(0, 0, 0));
+        defaultSala.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\INICIAR_SEM_SALA_IMG.png"));
+        defaultSala.setText("  ");
+        defaultSala.setPreferredSize(new java.awt.Dimension(230, 60));
         defaultSala.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 defaultSalaActionPerformed(evt);
             }
         });
+        add(defaultSala);
+        defaultSala.setBounds(70, 350, 360, 80);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(defaultSala, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(começar)
-                    .addComponent(textField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(120, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addComponent(textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(começar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(defaultSala)
-                .addContainerGap(122, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\Painelprofessor.jpeg"));
+        jLabel1.setMaximumSize(new java.awt.Dimension(1280, 720));
+        jLabel1.setMinimumSize(new java.awt.Dimension(1280, 720));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1280, 720));
+        add(jLabel1);
+        jLabel1.setBounds(0, -10, 1290, 740);
     }// </editor-fold>//GEN-END:initComponents
 
     private void começarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_começarActionPerformed
@@ -104,6 +100,7 @@ public class TelaInserirSala extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton começar;
     private javax.swing.JButton defaultSala;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField textField;
     // End of variables declaration//GEN-END:variables
 }
