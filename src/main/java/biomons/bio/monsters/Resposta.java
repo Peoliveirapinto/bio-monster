@@ -12,11 +12,18 @@ public class Resposta {
     private boolean certa;
     private String resposta;
     private int idPergunta;
+    private String correct;
     
     public Resposta(boolean certa, String resposta, int idPergunta){
         setCerta(certa);
         setResposta(resposta);
         setIdPergunta(idPergunta);
+    }
+    
+    public Resposta(String resposta, int idPergunta, String correct) {
+        setResposta(resposta);
+        setIdPergunta(idPergunta);
+        setCorrect(correct);
     }
     
     public boolean getCerta(){
@@ -37,5 +44,10 @@ public class Resposta {
     public void setIdPergunta(int idPergunta){
         this.idPergunta = idPergunta;
     }
-    
+    public String getCorrect(){
+        return correct;
+    }
+    public void setCorrect(String correct){
+        this.correct = correct;
+    }
 }

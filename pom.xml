@@ -11,11 +11,15 @@
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE210</version>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <exec.mainClass>biomons.bio.monsters.BioMonsters</exec.mainClass>
         <maven.compiler.release>17</maven.compiler.release>
     </properties>
-
 </project>

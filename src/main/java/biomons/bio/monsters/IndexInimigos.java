@@ -1,6 +1,5 @@
 package biomons.bio.monsters;
 
-
 import biomons.bio.monsters.Inimigo;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,41 +8,45 @@ import java.util.List;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author pedro
  */
 public class IndexInimigos extends javax.swing.JFrame {
+
     private int inimigoNum = 0;
     private int dificuldade;
     private List<Inimigo> inimigos = new ArrayList<Inimigo>();
-    
-    public void initInimigo(int inimigoNum){
+
+    public void initInimigo(int inimigoNum) {
         //setNome e setDescrip com id Inimigo
         nomeArea.setText((inimigos.get(inimigoNum)).getNomeInimigo());
         descArea.setText((inimigos.get(inimigoNum)).getInfoInimigo());
     }
-    
-    public void addInimigos(int codeSala){
+
+    public void addInimigos() {
         //adicionar inimigos com codeSala definido e dificulade menor ou igual a definida
-        //teste
-        Inimigo inimigo1 = new Inimigo(1,"nome1","desc1");
-        Inimigo inimigo2 = new Inimigo(2,"nome2","desc2");
-        inimigos.add(inimigo1);
-        inimigos.add(inimigo2);
+        for (int i = 1; i <= dificuldade; i++) {
+            try {
+                DAO dao = new DAO();
+                inimigos.add(dao.addInimigo(i));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
-    
-    public void setDificuldade(int dificuldade){
-        this.dificuldade=dificuldade;
+
+    public void setDificuldade(int dificuldade) {
+        this.dificuldade = dificuldade;
     }
+
     /**
      * Creates new form IndexInimigos
      */
-    public IndexInimigos(int dificuldade, int codeSala) {
+    public IndexInimigos(int dificuldade) {
         initComponents();
         setDificuldade(dificuldade);
-        addInimigos(codeSala);
+        addInimigos();
         initInimigo(inimigoNum);
     }
 
@@ -115,14 +118,14 @@ public class IndexInimigos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void antButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_antButtonActionPerformed
-        if (inimigoNum>0){
+        if (inimigoNum > 0) {
             inimigoNum--;
             initInimigo(inimigoNum);
         }
     }//GEN-LAST:event_antButtonActionPerformed
 
     private void proxButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proxButtomActionPerformed
-        if (inimigoNum<(dificuldade-1)){
+        if (inimigoNum < (dificuldade - 1)) {
             inimigoNum++;
             initInimigo(inimigoNum);
         }
