@@ -56,39 +56,39 @@ public class TelaInterDificuldade extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(null);
 
-        continuarButton.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\CONTINUAR_IMG.png")));
-    continuarButton.setBorderPainted(false);
-    continuarButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            continuarButtonActionPerformed(evt);
-        }
-    });
-    add(continuarButton);
-    continuarButton.setBounds(429, 277, 192, 24);
+        continuarButton.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\CONTINUAR_IMG.png"));
+        continuarButton.setBorderPainted(false);
+        continuarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                continuarButtonActionPerformed(evt);
+            }
+        });
+        add(continuarButton);
+        continuarButton.setBounds(429, 277, 192, 24);
 
-    indexBioMons.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\BIODEX_IMG.png")));
-    indexBioMons.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            indexBioMonsActionPerformed(evt);
-        }
-    });
-    add(indexBioMons);
-    indexBioMons.setBounds(429, 313, 96, 24);
+        indexBioMons.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\BIODEX_IMG.png"));
+        indexBioMons.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                indexBioMonsActionPerformed(evt);
+            }
+        });
+        add(indexBioMons);
+        indexBioMons.setBounds(429, 313, 96, 24);
 
-    textArea.setEditable(false);
-    textArea.setColumns(20);
-    textArea.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-    textArea.setRows(5);
-    textArea.setText("Nivel Concluído");
-    textArea.setPreferredSize(new java.awt.Dimension(400, 200));
-    jScrollPane1.setViewportView(textArea);
+        textArea.setEditable(false);
+        textArea.setColumns(20);
+        textArea.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textArea.setRows(5);
+        textArea.setText("Nivel Concluído");
+        textArea.setPreferredSize(new java.awt.Dimension(400, 200));
+        jScrollPane1.setViewportView(textArea);
 
-    add(jScrollPane1);
-    jScrollPane1.setBounds(429, 124, 344, 141);
+        add(jScrollPane1);
+        jScrollPane1.setBounds(429, 124, 344, 141);
 
-    jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\Painelprofessor.jpeg"));
-    add(jLabel1);
-    jLabel1.setBounds(0, 0, 1270, 750);
+        jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\Painelprofessor.jpeg"));
+        add(jLabel1);
+        jLabel1.setBounds(0, 0, 1270, 750);
     }// </editor-fold>//GEN-END:initComponents
 
     private void continuarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarButtonActionPerformed

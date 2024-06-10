@@ -38,15 +38,10 @@ public class TelaPerdeu extends javax.swing.JPanel {
         tryAgain = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setLayout(null);
-
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setText("Você perdeu!\nGostaria de tentar essa dificuldade de novo?\n");
         jScrollPane1.setViewportView(jTextArea1);
-
-        add(jScrollPane1);
-        jScrollPane1.setBounds(540, 110, 253, 96);
 
         tryAgain.setBackground(new java.awt.Color(0, 0, 0));
         tryAgain.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\TENTAR NOVAMENTE IMG.png"));
@@ -57,12 +52,31 @@ public class TelaPerdeu extends javax.swing.JPanel {
                 tryAgainActionPerformed(evt);
             }
         });
-        add(tryAgain);
-        tryAgain.setBounds(520, 250, 300, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\Painelprofessor.jpeg"));
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 1280, 720);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(520, 520, 520)
+                .addComponent(tryAgain, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(540, 540, 540)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(tryAgain, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void tryAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tryAgainActionPerformed

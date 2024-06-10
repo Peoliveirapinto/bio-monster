@@ -250,7 +250,6 @@ public class TelaQuiz extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(128, 72));
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(1280, 720));
-        setLayout(null);
 
         resposta1.setText("jButton1");
         resposta1.setPreferredSize(new java.awt.Dimension(400, 80));
@@ -259,25 +258,16 @@ public class TelaQuiz extends javax.swing.JPanel {
                 resposta1ActionPerformed(evt);
             }
         });
-        add(resposta1);
-        resposta1.setBounds(0, 490, 400, 80);
 
         vidaJogadorBarra.setForeground(new java.awt.Color(0, 255, 0));
         vidaJogadorBarra.setPreferredSize(new java.awt.Dimension(400, 20));
-        add(vidaJogadorBarra);
-        vidaJogadorBarra.setBounds(6, 6, 400, 20);
 
         vidaInimigoBarra.setForeground(new java.awt.Color(0, 255, 0));
         vidaInimigoBarra.setPreferredSize(new java.awt.Dimension(400, 20));
-        add(vidaInimigoBarra);
-        vidaInimigoBarra.setBounds(870, 10, 400, 20);
 
         areaPerg.setEditable(false);
         areaPerg.setPreferredSize(new java.awt.Dimension(400, 200));
         jScrollPane1.setViewportView(areaPerg);
-
-        add(jScrollPane1);
-        jScrollPane1.setBounds(830, 490, 440, 220);
 
         resposta2.setText("jButton2");
         resposta2.setPreferredSize(new java.awt.Dimension(400, 80));
@@ -286,8 +276,6 @@ public class TelaQuiz extends javax.swing.JPanel {
                 resposta2ActionPerformed(evt);
             }
         });
-        add(resposta2);
-        resposta2.setBounds(420, 490, 400, 80);
 
         resposta3.setText("jButton3");
         resposta3.setPreferredSize(new java.awt.Dimension(400, 80));
@@ -296,8 +284,6 @@ public class TelaQuiz extends javax.swing.JPanel {
                 resposta3ActionPerformed(evt);
             }
         });
-        add(resposta3);
-        resposta3.setBounds(0, 630, 400, 80);
 
         resposta4.setText("jButton4");
         resposta4.setPreferredSize(new java.awt.Dimension(400, 80));
@@ -306,20 +292,76 @@ public class TelaQuiz extends javax.swing.JPanel {
                 resposta4ActionPerformed(evt);
             }
         });
-        add(resposta4);
-        resposta4.setBounds(420, 630, 400, 80);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\onça.png"));
-        add(jLabel2);
-        jLabel2.setBounds(20, 150, 460, 330);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\" + imagemInimigo()));
-            add(jLabel3);
-            jLabel3.setBounds(750, 120, 400, 330);
 
             jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\BATALHA_CENA_1280X720.png"));
-            add(jLabel1);
-            jLabel1.setBounds(0, 0, 1280, 720);
+
+            javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+            this.setLayout(layout);
+            layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(420, 420, 420)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(resposta2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(resposta4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(10, 10, 10)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(resposta3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(750, 750, 750)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(vidaJogadorBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(870, 870, 870)
+                            .addComponent(vidaInimigoBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(resposta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(54, Short.MAX_VALUE))
+            );
+            layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(490, 490, 490)
+                            .addComponent(resposta2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(60, 60, 60)
+                            .addComponent(resposta4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(490, 490, 490)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(630, 630, 630)
+                            .addComponent(resposta3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(150, 150, 150)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(120, 120, 120)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(vidaJogadorBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(vidaInimigoBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(490, 490, 490)
+                            .addComponent(resposta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(31, Short.MAX_VALUE))
+            );
         }// </editor-fold>//GEN-END:initComponents
 
     private void resposta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resposta1ActionPerformed

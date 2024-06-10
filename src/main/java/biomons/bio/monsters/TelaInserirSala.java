@@ -44,11 +44,7 @@ public class TelaInserirSala extends javax.swing.JPanel {
         defaultSala = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setLayout(null);
-
         textField.setBorder(javax.swing.BorderFactory.createTitledBorder("Código da sala"));
-        add(textField);
-        textField.setBounds(80, 80, 700, 60);
 
         começar.setBackground(new java.awt.Color(0, 0, 0));
         começar.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\BotaoIniciar.png"));
@@ -57,8 +53,6 @@ public class TelaInserirSala extends javax.swing.JPanel {
                 começarActionPerformed(evt);
             }
         });
-        add(começar);
-        começar.setBounds(70, 230, 280, 70);
 
         defaultSala.setBackground(new java.awt.Color(0, 0, 0));
         defaultSala.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\INICIAR_SEM_SALA_IMG.png"));
@@ -69,15 +63,39 @@ public class TelaInserirSala extends javax.swing.JPanel {
                 defaultSalaActionPerformed(evt);
             }
         });
-        add(defaultSala);
-        defaultSala.setBounds(70, 350, 360, 80);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\Painelprofessor.jpeg"));
         jLabel1.setMaximumSize(new java.awt.Dimension(1280, 720));
         jLabel1.setMinimumSize(new java.awt.Dimension(1280, 720));
         jLabel1.setPreferredSize(new java.awt.Dimension(1280, 720));
-        add(jLabel1);
-        jLabel1.setBounds(0, -10, 1290, 740);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(começar, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(defaultSala, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(textField, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1290, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(240, 240, 240)
+                .addComponent(começar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(defaultSala, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(textField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void começarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_começarActionPerformed

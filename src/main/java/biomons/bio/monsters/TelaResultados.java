@@ -43,14 +43,9 @@ public class TelaResultados extends javax.swing.JPanel {
         sairButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setLayout(null);
-
         textArea.setColumns(20);
         textArea.setRows(5);
         jScrollPane1.setViewportView(textArea);
-
-        add(jScrollPane1);
-        jScrollPane1.setBounds(240, 60, 770, 190);
 
         sairButton.setBackground(new java.awt.Color(0, 0, 0));
         sairButton.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\SAIR_IMG (1).png"));
@@ -59,13 +54,32 @@ public class TelaResultados extends javax.swing.JPanel {
                 sairButtonActionPerformed(evt);
             }
         });
-        add(sairButton);
-        sairButton.setBounds(500, 570, 250, 70);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") +"\\src\\main\\java\\TeladeLogin\\INDEX_INIMIGOS_BACKGROUND.png"));
         jLabel1.setPreferredSize(new java.awt.Dimension(1780, 720));
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 1280, 720);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(240, 240, 240)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(500, 500, 500)
+                .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(570, 570, 570)
+                .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void sairButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairButtonActionPerformed
